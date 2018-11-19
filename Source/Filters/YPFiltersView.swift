@@ -32,18 +32,26 @@ class YPFiltersView: UIView {
         )
         
         let isIphone4 = UIScreen.main.bounds.height == 480
-        let sideMargin: CGFloat = isIphone4 ? 20 : 0
+//        let sideMargin: CGFloat = isIphone4 ? 20 : 0
+        let sideMargin: CGFloat = 20
         
-        |-sideMargin-imageView.top(0)-sideMargin-|
-        |-sideMargin-collectionViewContainer-sideMargin-|
+        |-sideMargin-imageView.top(20)-sideMargin-|
+        imageView.Bottom == collectionViewContainer.Top - 20
+        |-0.0-collectionViewContainer-0.0-|
         collectionViewContainer.bottom(0)
-        imageView.Bottom == collectionViewContainer.Top
-        |collectionView.centerVertically().height(160)|
-        filtersLoader.centerInContainer()
         
+        // TODO: QuangTT Custom
+//        |collectionView.centerVertically().height(160)|
+        |collectionView.top(10).height(140)|
+//        filtersLoader.centerInContainer()
+        filtersLoader.top(20)
+        filtersLoader.centerHorizontally()
+        
+        collectionViewContainer.backgroundColor = UIColor(r: 248, g: 250, b: 251)
         imageView.heightEqualsWidth()
+        imageView.layer.cornerRadius = 8
         
-        backgroundColor = UIColor(r: 247, g: 247, b: 247)
+        backgroundColor = UIColor.white
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         collectionView.backgroundColor = .clear
@@ -53,9 +61,9 @@ class YPFiltersView: UIView {
     func layout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 4
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18)
-        layout.itemSize = CGSize(width: 100, height: 120)
+        layout.minimumLineSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        layout.itemSize = CGSize(width: 100, height: 125)
         return layout
     }
 }

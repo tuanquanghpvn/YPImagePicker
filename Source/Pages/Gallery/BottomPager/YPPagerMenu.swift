@@ -16,7 +16,9 @@ final class YPPagerMenu: UIView {
     
     convenience init() {
         self.init(frame: .zero)
-        backgroundColor = UIColor(r: 247, g: 247, b: 247)
+        // TODO: QuangTT Custom
+//        backgroundColor = UIColor(r: 247, g: 247, b: 247)
+        backgroundColor = UIColor.white
         clipsToBounds = true
     }
     

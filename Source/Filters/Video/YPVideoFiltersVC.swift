@@ -110,6 +110,9 @@ public class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
                                                             target: self,
                                                             action: #selector(save))
         navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes(
+            [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)],
+            for: .normal)
     }
     
     // MARK: - Top buttons

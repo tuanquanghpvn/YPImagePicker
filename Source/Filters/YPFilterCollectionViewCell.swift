@@ -17,16 +17,16 @@ class YPFilterCollectionViewCell: UICollectionViewCell {
             self.contentView.transform = self.isHighlighted
                 ? CGAffineTransform(scaleX: 0.95, y: 0.95)
                 : CGAffineTransform.identity
-        }
+            }
         }
     }
     override var isSelected: Bool { didSet {
         name.textColor = isSelected
-            ? UIColor(r: 38, g: 38, b: 38)
-            : UIColor(r: 154, g: 154, b: 154)
+            ? UIColor(r: 87, g: 195, b: 232)
+            : UIColor(r: 36, g: 36, b: 36)
         
-        name.font = .systemFont(ofSize: 11, weight: isSelected
-            ? UIFont.Weight.medium
+        name.font = .systemFont(ofSize: 13, weight: isSelected
+            ? UIFont.Weight.regular
             : UIFont.Weight.regular)
         }
     }
@@ -43,18 +43,21 @@ class YPFilterCollectionViewCell: UICollectionViewCell {
         |name|.top(0)
         |imageView|.bottom(0).heightEqualsWidth()
         
-        name.font = .systemFont(ofSize: 11, weight: UIFont.Weight.regular)
-        name.textColor = UIColor(r: 154, g: 154, b: 154)
+        name.font = .systemFont(ofSize: 13, weight: UIFont.Weight.regular)
+        name.textColor = UIColor(r: 36, g: 36, b: 36)
         name.textAlignment = .center
         
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.backgroundColor = UIColor.clear
+        imageView.layer.cornerRadius = 4
         
         self.clipsToBounds = false
-        self.layer.shadowColor = UIColor(r: 46, g: 43, b: 37).cgColor
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowOffset = CGSize(width: 4, height: 7)
-        self.layer.shadowRadius = 5
+        // TODO: QuangTT Custom - Disable Shadow Color
+//        self.layer.shadowColor = UIColor(r: 46, g: 43, b: 37).cgColor
+//        self.layer.shadowOpacity = 0.2
+//        self.layer.shadowOffset = CGSize(width: 4, height: 7)
+//        self.layer.shadowRadius = 5
         self.layer.backgroundColor = UIColor.clear.cgColor
     }
 }

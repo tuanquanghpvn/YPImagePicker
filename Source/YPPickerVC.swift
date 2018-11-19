@@ -46,7 +46,9 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(r: 247, g: 247, b: 247)
+        // TODO: QuangTT Custom
+//        view.backgroundColor = UIColor(r: 247, g: 247, b: 247)
+        view.backgroundColor = UIColor.white
         
         delegate = self
         
@@ -266,19 +268,23 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     
     func updateUI() {
         // Update Nav Bar state.
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: YPConfig.wordings.cancel,
-                                                           style: .plain,
-                                                           target: self,
-                                                           action: #selector(close))
+        // Custom Code For Earth Photo
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: YPConfig.icons.closeIcon,
+                                                           style: UIBarButtonItem.Style.plain,
+                                                           target: self, action: #selector(close))
         
         switch mode {
         case .library:
-            setTitleViewWithTitle(aTitle: libraryVC?.title ?? "")
+            // TODO: QuangTT Custom - Hidden Choose Category Photo
+//            setTitleViewWithTitle(aTitle: libraryVC?.title ?? "")
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: YPConfig.wordings.next,
                                                                 style: .done,
                                                                 target: self,
                                                                 action: #selector(done))
             navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
+            navigationItem.rightBarButtonItem?.setTitleTextAttributes(
+                [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)],
+                for: .normal)
             
             // Disable Next Button until minNumberOfItems is reached.
             let minNumberOfItems = YPConfig.library.minNumberOfItems
@@ -294,6 +300,9 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             title = videoVC?.title
             navigationItem.rightBarButtonItem = nil
         }
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes(
+            [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)],
+            for: .normal)
     }
     
     @objc

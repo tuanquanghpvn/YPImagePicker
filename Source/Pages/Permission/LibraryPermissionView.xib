@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LibraryPermissionView" customModule="YPImagePicker" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LibraryPermissionView" customModule="YPImagePicker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="569"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-pf-ksZ">
+                    <rect key="frame" x="0.0" y="184.5" width="375" height="200"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9T-CB-ph0">
+                            <rect key="frame" x="97.5" y="20" width="180" height="40"/>
+                            <string key="text">ライブラリの利用を
+許可してください。</string>
+                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
+                            <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ライブラリの利用を許可するとあなたのカメラロールの写真を加工、加工した画像を保存することができます。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLi-Ch-vm5">
+                            <rect key="frame" x="30" y="80" width="315" height="45"/>
+                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                            <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7I-jB-aO1">
+                            <rect key="frame" x="30" y="165" width="315" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="qpu-uT-WUy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                            <state key="normal" title="ライブラリアクセスを有効にする">
+                                <color key="titleColor" red="0.3411764705882353" green="0.76470588235294112" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="requestPermissionClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="0Ok-H1-D7b"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="y7I-jB-aO1" firstAttribute="top" secondItem="bLi-Ch-vm5" secondAttribute="bottom" constant="40" id="5A2-07-vZJ"/>
+                        <constraint firstItem="W9T-CB-ph0" firstAttribute="top" secondItem="cfg-pf-ksZ" secondAttribute="top" constant="20" id="6AA-1U-KnY"/>
+                        <constraint firstAttribute="height" constant="200" id="AFc-Bn-vfC"/>
+                        <constraint firstAttribute="trailing" secondItem="bLi-Ch-vm5" secondAttribute="trailing" constant="30" id="P7q-Ji-I1L"/>
+                        <constraint firstItem="bLi-Ch-vm5" firstAttribute="leading" secondItem="cfg-pf-ksZ" secondAttribute="leading" constant="30" id="Uf7-uu-1nW"/>
+                        <constraint firstItem="y7I-jB-aO1" firstAttribute="leading" secondItem="cfg-pf-ksZ" secondAttribute="leading" constant="30" id="Vta-L3-bOI"/>
+                        <constraint firstAttribute="trailing" secondItem="y7I-jB-aO1" secondAttribute="trailing" constant="30" id="Zdk-Ed-XHT"/>
+                        <constraint firstItem="bLi-Ch-vm5" firstAttribute="top" secondItem="W9T-CB-ph0" secondAttribute="bottom" constant="20" id="tmG-0G-WIS"/>
+                        <constraint firstItem="W9T-CB-ph0" firstAttribute="centerX" secondItem="cfg-pf-ksZ" secondAttribute="centerX" id="v3T-tj-ojh"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cfg-pf-ksZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="AFn-eP-9Em"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cfg-pf-ksZ" secondAttribute="trailing" id="AWo-6j-vS5"/>
+                <constraint firstItem="cfg-pf-ksZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hRj-EO-dAh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="130.40000000000001" y="197.45127436281859"/>
+        </view>
+    </objects>
+</document>

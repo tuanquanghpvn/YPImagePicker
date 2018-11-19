@@ -21,12 +21,17 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     internal let mediaManager = LibraryMediaManager()
     internal var latestImageTapped = ""
     internal let panGestureHelper = PanGestureHelper()
+    // TODO: QuangTT Custom
+    let titleCustomBottomPager = YPConfig.wordings.libraryTitle
+    fileprivate var permissionView = LibraryPermissionView()
 
     // MARK: - Init
     
     public required init() {
         super.init(nibName: nil, bundle: nil)
-        title = YPConfig.wordings.libraryTitle
+        // TODO: QuangTT Custom
+//        title = YPConfig.wordings.libraryTitle
+        title = ""
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -196,7 +201,19 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                 strongSelf.initialize()
                 strongSelf.initialized = true
             }
+            strongSelf.showOrHidePermissionView(isShow: !hasPermission)
         }
+    }
+    
+    func showOrHidePermissionView(isShow: Bool) {
+        guard isShow else {
+            permissionView.removeFromSuperview()
+            return
+        }
+        permissionView = LibraryPermissionView.fromNib()
+        permissionView.frame = view.bounds
+        view.addSubview(permissionView)
+        view.bringSubviewToFront(permissionView)
     }
 
     // Async beacause will prompt permission if .notDetermined
@@ -208,11 +225,13 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
         case .authorized:
             block(true)
         case .restricted, .denied:
-            let popup = YPPermissionDeniedPopup()
-            let alert = popup.popup(cancelBlock: {
-                block(false)
-            })
-            present(alert, animated: true, completion: nil)
+//            let popup = YPPermissionDeniedPopup()
+//            let alert = popup.popup(cancelBlock: {
+//                block(false)
+//            })
+//            present(alert, animated: true, completion: nil)
+            // TODO: QuangTT Custom
+            block(false)
         case .notDetermined:
             // Show permission popup and get new status
             PHPhotoLibrary.requestAuthorization { s in

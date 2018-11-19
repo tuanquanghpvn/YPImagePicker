@@ -69,7 +69,15 @@ public class YPBottomPager: UIViewController, UIScrollViewDelegate {
         // Build headers
         for (index, c) in controllers.enumerated() {
             let menuItem = YPMenuItem()
-            menuItem.textLabel.text = c.title?.capitalized
+            // TODO: QuangTT Custom
+//            menuItem.textLabel.text = c.title?.capitalized
+            if let vc = c as? YPLibraryVC {
+                menuItem.textLabel.text = vc.titleCustomBottomPager.uppercased()
+            } else if let vc = c as? YPCameraVC {
+                menuItem.textLabel.text = vc.titleCustomBottomPager.uppercased()
+            } else {
+                menuItem.textLabel.text = c.title?.uppercased()
+            }
             menuItem.button.tag = index
             menuItem.button.addTarget(self,
                                       action: #selector(tabTapped(_:)),

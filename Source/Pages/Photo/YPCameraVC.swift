@@ -10,17 +10,22 @@ import UIKit
 import AVFoundation
 import Photos
 
-public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate, YPPermissionCheckable {
+public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
     
     public var didCapturePhoto: ((UIImage) -> Void)?
     let photoCapture = newPhotoCapture()
     let v: YPCameraView!
     override public func loadView() { view = v }
+    // TODO: QuangTT Custom
+    let titleCustomBottomPager = YPConfig.wordings.cameraTitle
+    fileprivate var permissionView = PhotoPermissionView()
 
     public required init() {
         self.v = YPCameraView(overlayView: YPConfig.overlayView)
         super.init(nibName: nil, bundle: nil)
-        title = YPConfig.wordings.cameraTitle
+        // TODO: QuangTT Custom
+//        title = YPConfig.wordings.cameraTitle
+        title = ""
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -175,5 +180,48 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate, YPPermis
         let flashImage = photoCapture.currentFlashMode.flashImage()
         v.flashButton.setImage(flashImage, for: .normal)
         v.flashButton.isHidden = !photoCapture.hasFlash
+    }
+    
+    // MARK: - Check Permission
+    
+    func showOrHidePermissionView(isShow: Bool) {
+        guard isShow else {
+            permissionView.removeFromSuperview()
+            return
+        }
+        permissionView = PhotoPermissionView.fromNib()
+        permissionView.frame = view.bounds
+        view.addSubview(permissionView)
+        view.bringSubviewToFront(permissionView)
+    }
+    
+    func checkPermission() {
+        checkPermissionToAccessVideo { _ in }
+    }
+    
+    func doAfterPermissionCheck(block:@escaping () -> Void) {
+        checkPermissionToAccessVideo { [weak self] hasPermission in
+            if hasPermission {
+                block()
+            }
+            self?.showOrHidePermissionView(isShow: !hasPermission)
+        }
+    }
+    
+    // Async beacause will prompt permission if .notDetermined
+    // and ask custom popup if denied.
+    func checkPermissionToAccessVideo(block: @escaping (Bool) -> Void) {
+        switch AVCaptureDevice.authorizationStatus(for: AVMediaType.video) {
+        case .authorized:
+            block(true)
+        case .restricted, .denied:
+            block(false)
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { granted in
+                DispatchQueue.main.async {
+                    block(granted)
+                }
+            })
+        }
     }
 }

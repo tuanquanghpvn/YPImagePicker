@@ -83,7 +83,6 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
                                                                target: self,
                                                                action: #selector(cancel))
         }
-        setupRightBarButton()
         
         YPHelper.changeBackButtonIcon(self)
         YPHelper.changeBackButtonTitle(self)
@@ -97,6 +96,11 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
         v.imageView.isUserInteractionEnabled = true
     }
     
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupRightBarButton()
+    }
+    
     // MARK: Setup - ⚙️
     
     fileprivate func setupRightBarButton() {
@@ -106,6 +110,9 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
                                                             target: self,
                                                             action: #selector(save))
         navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes(
+            [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)],
+            for: .normal)
     }
     
     // MARK: - Methods 🏓
@@ -145,21 +152,30 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
     func save() {
         guard let didSave = didSave else { return print("Don't have saveCallback") }
         self.navigationItem.rightBarButtonItem = YPLoaders.defaultLoader
+        let bundle = Bundle(for: YPImagePicker.self)
+        let ypFinishVC = YPFinishVC(nibName: "YPFinishVC", bundle: bundle)
+        ypFinishVC.didSave = didSave
+        ypFinishVC.didCancel = didCancel
+        ypFinishVC.inputPhoto = inputPhoto
+        ypFinishVC.selectedFilter = selectedFilter
+        ypFinishVC.currentlySelectedImageThumbnail = currentlySelectedImageThumbnail
+        navigationController?.pushViewController(ypFinishVC, animated: true)
 
-        DispatchQueue.global().async {
-            if let f = self.selectedFilter,
-                let applier = f.applier,
-                let ciImage = self.inputPhoto.originalImage.toCIImage(),
-                let modifiedFullSizeImage = applier(ciImage) {
-                self.inputPhoto.modifiedImage = modifiedFullSizeImage.toUIImage()
-            } else {
-                self.inputPhoto.modifiedImage = nil
-            }
-            DispatchQueue.main.async {
-                didSave(YPMediaItem.photo(p: self.inputPhoto))
-                self.setupRightBarButton()
-            }
-        }
+        // TODO: QuangTT Custom
+//        DispatchQueue.global().async {
+//            if let f = self.selectedFilter,
+//                let applier = f.applier,
+//                let ciImage = self.inputPhoto.originalImage.toCIImage(),
+//                let modifiedFullSizeImage = applier(ciImage) {
+//                self.inputPhoto.modifiedImage = modifiedFullSizeImage.toUIImage()
+//            } else {
+//                self.inputPhoto.modifiedImage = nil
+//            }
+//            DispatchQueue.main.async {
+//                didSave(YPMediaItem.photo(p: self.inputPhoto))
+//                self.setupRightBarButton()
+//            }
+//        }
     }
 }
 
@@ -177,6 +193,8 @@ extension YPPhotoFiltersVC: UICollectionViewDataSource {
                                  for: indexPath) as? YPFilterCollectionViewCell {
             cell.name.text = filter.name
             cell.imageView.image = image
+            cell.layer.cornerRadius = 4
+            cell.clipsToBounds = true
             return cell
         }
         return UICollectionViewCell()

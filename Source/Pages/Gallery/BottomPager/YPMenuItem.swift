@@ -37,12 +37,16 @@ final class YPMenuItem: UIView {
         )
         
         textLabel.centerInContainer()
-        |-(10)-textLabel-(10)-|
+        // TODO: QuangTT Custom
+//        |-(10)-textLabel-(10)-|
+        |-(5)-textLabel-(5)-|
         button.fillContainer()
         
         textLabel.style { l in
             l.textAlignment = .center
-            l.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.medium)
+            // TODO: QuangTT Custom
+//            l.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.bold)
+            l.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
             l.textColor = self.unselectedColor()
             l.adjustsFontSizeToFitWidth = true
             l.numberOfLines = 2
