@@ -149,6 +149,15 @@ public struct YPImagePickerConfiguration {
     @available(*, obsoleted: 3.0.0, renamed: "library.maxNumberOfItems")
     public var maxNumberOfItems = 1
     
+    /// List of default stickers which will be added on the sticker screen
+    public var stickers: [YPSticker] = [
+        YPSticker(id: 1, isNew: true, image: nil),
+        YPSticker(id: 2, isNew: true, image: nil),
+        YPSticker(id: 3, isNew: false, image: nil),
+        YPSticker(id: 4, isNew: false, image: nil),
+        YPSticker(id: 5, isNew: false, image: nil),
+        YPSticker(id: 6, isNew: false, image: nil),
+    ]
 }
 
 /// Encapsulates library specific settings.

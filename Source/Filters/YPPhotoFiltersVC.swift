@@ -153,29 +153,24 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
         guard let didSave = didSave else { return print("Don't have saveCallback") }
         self.navigationItem.rightBarButtonItem = YPLoaders.defaultLoader
         let bundle = Bundle(for: YPImagePicker.self)
-        let ypFinishVC = YPFinishVC(nibName: "YPFinishVC", bundle: bundle)
-        ypFinishVC.didSave = didSave
-        ypFinishVC.didCancel = didCancel
-        ypFinishVC.inputPhoto = inputPhoto
-        ypFinishVC.selectedFilter = selectedFilter
-        ypFinishVC.currentlySelectedImageThumbnail = currentlySelectedImageThumbnail
-        navigationController?.pushViewController(ypFinishVC, animated: true)
-
-        // TODO: QuangTT Custom
-//        DispatchQueue.global().async {
-//            if let f = self.selectedFilter,
-//                let applier = f.applier,
-//                let ciImage = self.inputPhoto.originalImage.toCIImage(),
-//                let modifiedFullSizeImage = applier(ciImage) {
-//                self.inputPhoto.modifiedImage = modifiedFullSizeImage.toUIImage()
-//            } else {
-//                self.inputPhoto.modifiedImage = nil
-//            }
-//            DispatchQueue.main.async {
-//                didSave(YPMediaItem.photo(p: self.inputPhoto))
-//                self.setupRightBarButton()
-//            }
-//        }
+        
+        if YPConfig.stickers.isEmpty {
+            let yPFinishVC = YPFinishVC(nibName: "YPFinishVC", bundle: bundle)
+            yPFinishVC.didSave = didSave
+            yPFinishVC.didCancel = didCancel
+            yPFinishVC.inputPhoto = inputPhoto
+            yPFinishVC.selectedFilter = selectedFilter
+            yPFinishVC.currentlySelectedImageThumbnail = currentlySelectedImageThumbnail
+            navigationController?.pushViewController(yPFinishVC, animated: true)
+        } else {
+            let yPStickersVC = YPStickersVC(nibName: "YPStickersVC", bundle: bundle)
+            yPStickersVC.didSave = didSave
+            yPStickersVC.didCancel = didCancel
+            yPStickersVC.inputPhoto = inputPhoto
+            yPStickersVC.selectedFilter = selectedFilter
+            yPStickersVC.currentlySelectedImageThumbnail = currentlySelectedImageThumbnail
+            navigationController?.pushViewController(yPStickersVC, animated: true)
+        }
     }
 }
 

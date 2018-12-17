@@ -14,6 +14,11 @@
 		0D134ECB21A3A62100ADAB47 /* PhotoPermissionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D134ECA21A3A62100ADAB47 /* PhotoPermissionView.xib */; };
 		0D134ECF21A40CDC00ADAB47 /* YPFinishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D134ECD21A40CDC00ADAB47 /* YPFinishVC.swift */; };
 		0D134ED021A40CDC00ADAB47 /* YPFinishVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D134ECE21A40CDC00ADAB47 /* YPFinishVC.xib */; };
+		74098DA321C7358F008F2E91 /* YPStickersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74098DA121C7358F008F2E91 /* YPStickersVC.swift */; };
+		74098DA421C7358F008F2E91 /* YPStickersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74098DA221C7358F008F2E91 /* YPStickersVC.xib */; };
+		74098DA821C744B7008F2E91 /* YPStickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74098DA621C744B7008F2E91 /* YPStickerCollectionViewCell.swift */; };
+		74098DA921C744B7008F2E91 /* YPStickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74098DA721C744B7008F2E91 /* YPStickerCollectionViewCell.xib */; };
+		74098DAB21C756E1008F2E91 /* YPSticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74098DAA21C756E1008F2E91 /* YPSticker.swift */; };
 		99019E4C2018CCD6007325C2 /* YPBottomPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99019E4B2018CCD6007325C2 /* YPBottomPagerView.swift */; };
 		99019E4E2018CD31007325C2 /* YPPagerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99019E4D2018CD31007325C2 /* YPPagerMenu.swift */; };
 		99019E512018CDED007325C2 /* YPImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99019E502018CDED007325C2 /* YPImageSize.swift */; };
@@ -116,6 +121,11 @@
 		5F01F9DC20DCC494007432E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		65BBCBAE2101BA4200277809 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7157B4CA206FD7270004EF6C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		74098DA121C7358F008F2E91 /* YPStickersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPStickersVC.swift; sourceTree = "<group>"; };
+		74098DA221C7358F008F2E91 /* YPStickersVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YPStickersVC.xib; sourceTree = "<group>"; };
+		74098DA621C744B7008F2E91 /* YPStickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPStickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		74098DA721C744B7008F2E91 /* YPStickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YPStickerCollectionViewCell.xib; sourceTree = "<group>"; };
+		74098DAA21C756E1008F2E91 /* YPSticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPSticker.swift; sourceTree = "<group>"; };
 		99019E4B2018CCD6007325C2 /* YPBottomPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPBottomPagerView.swift; sourceTree = "<group>"; };
 		99019E4D2018CD31007325C2 /* YPPagerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPPagerMenu.swift; sourceTree = "<group>"; };
 		99019E502018CDED007325C2 /* YPImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPImageSize.swift; sourceTree = "<group>"; };
@@ -263,6 +273,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		74098DA021C73546008F2E91 /* Stickers */ = {
+			isa = PBXGroup;
+			children = (
+				74098DA521C7449A008F2E91 /* Views */,
+				74098DA121C7358F008F2E91 /* YPStickersVC.swift */,
+				74098DA221C7358F008F2E91 /* YPStickersVC.xib */,
+			);
+			path = Stickers;
+			sourceTree = "<group>";
+		};
+		74098DA521C7449A008F2E91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				74098DA621C744B7008F2E91 /* YPStickerCollectionViewCell.swift */,
+				74098DA721C744B7008F2E91 /* YPStickerCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		99019E4A2018CCB8007325C2 /* BottomPager */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +312,7 @@
 				EBD66106208104F400EA276E /* YPColors.swift */,
 				99019E502018CDED007325C2 /* YPImageSize.swift */,
 				99019E522018CE19007325C2 /* YPPickerScreen.swift */,
+				74098DAA21C756E1008F2E91 /* YPSticker.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -340,6 +370,7 @@
 				99019E4F2018CDDF007325C2 /* Configuration */,
 				EB65C4B3209281A10037858B /* Pages */,
 				99C6D6A91F1FB5C100711DB2 /* Filters */,
+				74098DA021C73546008F2E91 /* Stickers */,
 				0D134ECC21A405C300ADAB47 /* Finish */,
 				EBD2B639207B7B1100E711C2 /* SelectionsGallery */,
 				99019E542018CECC007325C2 /* Helpers */,
@@ -581,8 +612,10 @@
 				99C6D6B91F1FB5C100711DB2 /* Assets.xcassets in Resources */,
 				99C6D6BD1F1FB5C100711DB2 /* YPLibraryView.xib in Resources */,
 				0D134ECB21A3A62100ADAB47 /* PhotoPermissionView.xib in Resources */,
+				74098DA421C7358F008F2E91 /* YPStickersVC.xib in Resources */,
 				0D134ED021A40CDC00ADAB47 /* YPFinishVC.xib in Resources */,
 				EB59F453208766B800811B7B /* YPVideoFiltersVC.xib in Resources */,
+				74098DA921C744B7008F2E91 /* YPStickerCollectionViewCell.xib in Resources */,
 				0D134EC521A39B5300ADAB47 /* LibraryPermissionView.xib in Resources */,
 				99C6D6BA1F1FB5C100711DB2 /* Localizable.strings in Resources */,
 			);
@@ -633,6 +666,7 @@
 				99CF6D1B201B6A5C00487F77 /* UICollectionView+Extensions.swift in Sources */,
 				99C6D6C11F1FB5C100711DB2 /* YPAssetViewContainer.swift in Sources */,
 				EB473E17208E192800D16105 /* URL+Extensions.swift in Sources */,
+				74098DA821C744B7008F2E91 /* YPStickerCollectionViewCell.swift in Sources */,
 				EB473E2B208E1ECB00D16105 /* AVCaptureDevice+Extensions.swift in Sources */,
 				99A3C91020319227008D7E23 /* YPCropView.swift in Sources */,
 				99C6D6D11F1FB5C100711DB2 /* YPImagePicker.swift in Sources */,
@@ -645,6 +679,7 @@
 				99CF6D1F201B6B9E00487F77 /* CGRect+Extensions.swift in Sources */,
 				99CF6D1D201B6ABA00487F77 /* IndexSet+Extensions.swift in Sources */,
 				EB59F452208766B800811B7B /* YPVideoFiltersVC.swift in Sources */,
+				74098DAB21C756E1008F2E91 /* YPSticker.swift in Sources */,
 				EB473E1D208E1B9E00D16105 /* AVAsset+Extensions.swift in Sources */,
 				9911FA24203C3A31000E9B06 /* UIImage+Extensions.swift in Sources */,
 				99278DAC20512C330059532E /* YPPhotoCapture.swift in Sources */,
@@ -681,6 +716,7 @@
 				99CF6D25201B727900487F77 /* YPLibraryVC+PanGesture.swift in Sources */,
 				99CF6D27201B739600487F77 /* YPAlerts.swift in Sources */,
 				99C6D6CF1F1FB5C100711DB2 /* YPPickerVC.swift in Sources */,
+				74098DA321C7358F008F2E91 /* YPStickersVC.swift in Sources */,
 				EB94F28E208E3A140049F523 /* YPLoaders.swift in Sources */,
 				99CF6D29201B900400487F77 /* LibraryMediaManager.swift in Sources */,
 				99CD962720D179FD009F5084 /* YPSelectionsGalleryView.swift in Sources */,
