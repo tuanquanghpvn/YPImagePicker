@@ -44,7 +44,7 @@ public class YPSelectionsGalleryVC: UIViewController {
                                                             action: #selector(done))
         navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
         navigationItem.rightBarButtonItem?.setTitleTextAttributes(
-            [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)],
+            [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)],
             for: .normal)
         
         YPHelper.changeBackButtonIcon(self)

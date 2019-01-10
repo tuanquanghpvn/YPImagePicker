@@ -39,6 +39,18 @@ class PreiOS10PhotoCapture: YPPhotoCapture {
         guard device.hasFlash else { return }
         do {
             try device.lockForConfiguration()
+//            switch device.flashMode {
+//            case .auto:
+//                currentFlashMode = .on
+//                device.flashMode = .on
+//            case .on:
+//                currentFlashMode = .off
+//                device.flashMode = .off
+//            case .off:
+//                currentFlashMode = .auto
+//                device.flashMode = .auto
+//            }
+            
             switch device.flashMode {
             case .auto:
                 currentFlashMode = .on
@@ -47,8 +59,8 @@ class PreiOS10PhotoCapture: YPPhotoCapture {
                 currentFlashMode = .off
                 device.flashMode = .off
             case .off:
-                currentFlashMode = .auto
-                device.flashMode = .auto
+                currentFlashMode = .on
+                device.flashMode = .on
             }
             device.unlockForConfiguration()
         } catch _ { }

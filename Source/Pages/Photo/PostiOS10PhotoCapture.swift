@@ -22,7 +22,7 @@ class PostiOS10PhotoCapture: NSObject, YPPhotoCapture, AVCapturePhotoCaptureDele
     var isPreviewSetup: Bool = false
     var previewView: UIView!
     var videoLayer: AVCaptureVideoPreviewLayer!
-    var currentFlashMode: YPFlashMode = .off
+    var currentFlashMode: YPFlashMode = .on
     var hasFlash: Bool {
         guard let device = device else { return false }
         return device.hasFlash
@@ -77,13 +77,22 @@ class PostiOS10PhotoCapture: NSObject, YPPhotoCapture, AVCapturePhotoCaptureDele
     
     func tryToggleFlash() {
         // if device.hasFlash device.isFlashAvailable //TODO test these
+//        switch currentFlashMode {
+//        case .auto:
+//            currentFlashMode = .on
+//        case .on:
+//            currentFlashMode = .off
+//        case .off:
+//            currentFlashMode = .auto
+//        }
+        
         switch currentFlashMode {
         case .auto:
             currentFlashMode = .on
         case .on:
             currentFlashMode = .off
         case .off:
-            currentFlashMode = .auto
+            currentFlashMode = .on
         }
     }
     
