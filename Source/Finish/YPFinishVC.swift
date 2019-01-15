@@ -28,21 +28,38 @@ class YPFinishVC: UIViewController {
         configView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: YPConfig.icons.closeIcon,
+                                                            style: UIBarButtonItem.Style.plain,
+                                                            target: self, action: #selector(close))
+    }
+    
     deinit {
         print("Picker YP Deinit")
     }
     
+    // MARK: - Methods
+    
+    @objc func backAction() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     private func configView() {
-        navigationItem.title = "確認・完了"
+        title = "確認・完了"
+        removeBackButtonTitle()
         saveButton.layer.cornerRadius = saveButton.bounds.height / 2
         imageView?.contentMode = .scaleAspectFit
         imageView?.layer.cornerRadius = 10
         imageView?.clipsToBounds = true
         imageView?.image = currentlySelectedImageThumbnail ?? inputPhoto.originalImage
-        navigationItem.hidesBackButton = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: YPConfig.icons.closeIcon,
-                                                           style: UIBarButtonItem.Style.plain,
-                                                           target: self, action: #selector(close))
+    }
+    
+    func removeBackButtonTitle() {
+        if let topItem = self.navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @objc

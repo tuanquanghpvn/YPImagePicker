@@ -93,15 +93,13 @@ class YPStickersVC: UIViewController {
                                                             target: self,
                                                             action: #selector(nextAction))
         navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
-        navigationItem.hidesBackButton = true
         navigationItem.rightBarButtonItem?.setTitleTextAttributes(
-            [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)],
+            [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)],
             for: .normal)
     }
     
     @objc func nextAction() {
         guard let didSave = didSave else { return print("Don't have saveCallback") }
-        self.navigationItem.rightBarButtonItem = YPLoaders.defaultLoader
         let bundle = Bundle(for: YPImagePicker.self)
         let ypFinishVC = YPFinishVC(nibName: "YPFinishVC", bundle: bundle)
         ypFinishVC.didSave = didSave
