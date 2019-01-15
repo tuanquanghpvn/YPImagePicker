@@ -12,7 +12,7 @@ class YPStickersVC: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageContainSticker: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
 
     // MARK: - Properties
@@ -22,6 +22,12 @@ class YPStickersVC: UIViewController {
     public var didCancel: (() -> Void)?
     public var selectedFilter: YPFilter?
     public var currentlySelectedImageThumbnail: UIImage?
+    
+    public var imageViewToPan: UIImageView?
+
+    private var partialView: CGFloat {
+        return UIScreen.main.bounds.height - 300
+    }
     
     // MARK: - Private Properties
     
@@ -62,10 +68,10 @@ class YPStickersVC: UIViewController {
     fileprivate func configView() {
         navigationItem.title = "スタンプ選択"
         // Image Current
-        imageView?.contentMode = .scaleAspectFit
-        imageView?.layer.cornerRadius = 10
-        imageView?.clipsToBounds = true
-        imageView?.image = currentlySelectedImageThumbnail ?? inputPhoto.originalImage
+        imageContainSticker?.contentMode = .scaleAspectFit
+        imageContainSticker?.layer.cornerRadius = 10
+        imageContainSticker?.clipsToBounds = true
+        imageContainSticker?.image = currentlySelectedImageThumbnail ?? inputPhoto.originalImage
         // Collection View
         let bundle = Bundle(for: YPPickerVC.self)
         let nib = UINib(nibName: "YPStickerCollectionViewCell", bundle: bundle)
