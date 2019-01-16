@@ -9,6 +9,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKjp-Bold.otf">
+            <string>NotoSansCJKjp-Bold</string>
+        </array>
+        <array key="NotoSansCJKjp-Regular.otf">
+            <string>NotoSansCJKjp-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,26 +27,24 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FX2-hC-HGx">
                     <rect key="frame" x="0.0" y="233.5" width="375" height="200"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOX-eX-rZj">
-                            <rect key="frame" x="97.5" y="20" width="180" height="40"/>
-                            <string key="text">ライブラリの利用を
-許可してください。</string>
-                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ライブラリの利用を許可してください。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOX-eX-rZj">
+                            <rect key="frame" x="30" y="20" width="315" height="22.5"/>
+                            <fontDescription key="fontDescription" name="NotoSansCJKjp-Bold" family="Noto Sans CJK JP" pointSize="15"/>
                             <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ライブラリの利用を許可するとあなたのカメラロールの写真を加工、加工した画像を保存することができます。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KI-7p-Bcd">
-                            <rect key="frame" x="30" y="80" width="315" height="45"/>
-                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                            <rect key="frame" x="30" y="62.5" width="315" height="58"/>
+                            <fontDescription key="fontDescription" name="NotoSansCJKjp-Regular" family="Noto Sans CJK JP" pointSize="13"/>
                             <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02i-ad-O5T">
-                            <rect key="frame" x="30" y="165" width="315" height="30"/>
+                            <rect key="frame" x="30" y="160.5" width="315" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="UlB-VS-743"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="NotoSansCJKjp-Regular" family="Noto Sans CJK JP" pointSize="15"/>
                             <state key="normal" title="ライブラリアクセスを有効にする">
                                 <color key="titleColor" red="0.3411764706" green="0.76470588240000004" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -55,8 +61,10 @@
                         <constraint firstItem="02i-ad-O5T" firstAttribute="leading" secondItem="FX2-hC-HGx" secondAttribute="leading" constant="30" id="Zlz-mg-pie"/>
                         <constraint firstAttribute="trailing" secondItem="8KI-7p-Bcd" secondAttribute="trailing" constant="30" id="f9B-S5-sdX"/>
                         <constraint firstItem="pOX-eX-rZj" firstAttribute="top" secondItem="FX2-hC-HGx" secondAttribute="top" constant="20" id="hFa-zI-xtK"/>
+                        <constraint firstItem="pOX-eX-rZj" firstAttribute="leading" secondItem="8KI-7p-Bcd" secondAttribute="leading" id="i5U-jU-1On"/>
                         <constraint firstItem="pOX-eX-rZj" firstAttribute="centerX" secondItem="FX2-hC-HGx" secondAttribute="centerX" id="jn0-IU-sxz"/>
                         <constraint firstItem="8KI-7p-Bcd" firstAttribute="top" secondItem="pOX-eX-rZj" secondAttribute="bottom" constant="20" id="qbG-x4-1dz"/>
+                        <constraint firstItem="pOX-eX-rZj" firstAttribute="trailing" secondItem="8KI-7p-Bcd" secondAttribute="trailing" id="qux-kl-NqR"/>
                         <constraint firstItem="8KI-7p-Bcd" firstAttribute="leading" secondItem="FX2-hC-HGx" secondAttribute="leading" constant="30" id="yb8-vu-fpm"/>
                     </constraints>
                 </view>

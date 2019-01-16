@@ -151,12 +151,12 @@ public struct YPImagePickerConfiguration {
     
     /// List of default stickers which will be added on the sticker screen
     public var stickers: [YPSticker] = [
-        YPSticker(id: 1, isNew: true, image: nil),
-        YPSticker(id: 2, isNew: true, image: nil),
-        YPSticker(id: 3, isNew: false, image: nil),
-        YPSticker(id: 4, isNew: false, image: nil),
-        YPSticker(id: 5, isNew: false, image: nil),
-        YPSticker(id: 6, isNew: false, image: nil),
+        YPSticker(id: 1, isNew: true, photoStampType: PhotoStampType.image, image: nil),
+        YPSticker(id: 2, isNew: true, photoStampType: PhotoStampType.image, image: nil),
+        YPSticker(id: 3, isNew: false, photoStampType: PhotoStampType.image, image: nil),
+        YPSticker(id: 4, isNew: false, photoStampType: PhotoStampType.image, image: nil),
+        YPSticker(id: 5, isNew: false, photoStampType: PhotoStampType.image, image: nil),
+        YPSticker(id: 6, isNew: false, photoStampType: PhotoStampType.image, image: nil)
     ]
 }
 

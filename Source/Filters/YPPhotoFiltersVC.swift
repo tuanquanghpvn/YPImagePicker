@@ -77,6 +77,10 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
         
         // Setup of Navigation Bar
         title = YPConfig.wordings.filter
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.notoSansCJKJP(style: .bold, size: 15),
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ]
         if isFromSelectionVC {
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: YPConfig.wordings.cancel,
                                                                style: .plain,
@@ -111,7 +115,7 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
                                                             action: #selector(save))
         navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
         navigationItem.rightBarButtonItem?.setTitleTextAttributes(
-            [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)],
+            [NSAttributedString.Key.font : UIFont.notoSansCJKJP(style: .bold, size: 14)],
             for: .normal)
     }
     

@@ -10,48 +10,45 @@ import Foundation
 import UIKit
 
 protocol YPStickersVCDelegate {
-    /**
-     - Parameter view: selected view from YPStickersVC
-     */
     func didSelectView(view: UIView)
-    /**
-     - Parameter image: selected Image from YPStickersVC
-     */
-    func didSelectImage(image: UIImage)
-    /**
-     StickersViewController did Disappear
-     */
-    func stickersViewDidDisappear()
-}
-
-
-extension YPStickersVC {
-    
-    func addStickersViewController() {
-        
-    }
-    
-    func removeStickersView() {
-       
-    }
+    func didSelectImage(imageView: UIImageView)
+    func deleteImageInView(imageView: UIImageView)
 }
 
 extension YPStickersVC: YPStickersVCDelegate {
     
     func didSelectView(view: UIView) {
-        
+        view.center = imageContainSticker.center
+        self.imageContainSticker.addSubview(view)
+        addGestures(view: view)
     }
     
-    func didSelectImage(image: UIImage) {
+    func didSelectImage(imageView: UIImageView) {
+        let xoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.width / 4)) + 100)
+        let yoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.height / 4)) + 100)
         
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: xoffset, y: yoffset, width: 500, height: 500)
+        addGestures(view: imageView)
+        self.imageContainSticker.addSubview(imageView)
+        UIView.animate(withDuration: 0.25) { () -> Void in
+            imageView.frame.size = CGSize(width: 150, height: 150)
+        }
     }
     
-    func stickersViewDidDisappear() {
-        
+    func deleteImageInView(imageView: UIImageView) {
+        if let viewWithTag = self.imageContainSticker.viewWithTag(imageView.tag) {
+            UIView.animate(withDuration: 0.2, animations: {
+                viewWithTag.frame.size = CGSize(width: 0, height: 0)
+            },
+            completion: { _ in UIView.animate(withDuration: 0.1) {
+                    viewWithTag.removeFromSuperview()
+                }
+            })
+        }
     }
     
     func addGestures(view: UIView) {
-        //Gestures
         view.isUserInteractionEnabled = true
         
         let panGesture = UIPanGestureRecognizer(target: self,
@@ -60,14 +57,15 @@ extension YPStickersVC: YPStickersVCDelegate {
         panGesture.maximumNumberOfTouches = 1
         panGesture.delegate = self
         view.addGestureRecognizer(panGesture)
-        
+
         let pinchGesture = UIPinchGestureRecognizer(target: self,
                                                     action: #selector(YPStickersVC.pinchGesture))
         pinchGesture.delegate = self
         view.addGestureRecognizer(pinchGesture)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(YPStickersVC.tapGesture))
-        view.addGestureRecognizer(tapGesture)
-        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(YPStickersVC.longPressGesture))
+        longPressGesture.minimumPressDuration = 0.05
+        longPressGesture.delegate = self
+//        view.addGestureRecognizer(longPressGesture)
     }
 }
