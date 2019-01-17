@@ -22,14 +22,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFz-8X-wJ3">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="140"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HLt-Bg-Qh6">
-                                <rect key="frame" x="5" y="25" width="90" height="90"/>
-                                <color key="backgroundColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="Y9E-lA-jmU"/>
-                                    <constraint firstAttribute="width" constant="90" id="hZY-Il-RX9"/>
-                                </constraints>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new" translatesAutoresizingMaskIntoConstraints="NO" id="c3R-is-uYU">
                                 <rect key="frame" x="35" y="125" width="30" height="8"/>
                                 <constraints>
@@ -44,15 +36,33 @@
                                     <constraint firstAttribute="width" constant="12" id="lbe-qJ-Di3"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oaU-lI-LNd">
+                                <rect key="frame" x="5" y="25" width="90" height="90"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HLt-Bg-Qh6">
+                                        <rect key="frame" x="3" y="3" width="84" height="84"/>
+                                        <color key="backgroundColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="DWc-QS-laQ"/>
+                                    <constraint firstItem="HLt-Bg-Qh6" firstAttribute="leading" secondItem="oaU-lI-LNd" secondAttribute="leading" constant="3" id="JxL-3f-5zC"/>
+                                    <constraint firstItem="HLt-Bg-Qh6" firstAttribute="top" secondItem="oaU-lI-LNd" secondAttribute="top" constant="3" id="jwn-Q0-0Wq"/>
+                                    <constraint firstAttribute="trailing" secondItem="HLt-Bg-Qh6" secondAttribute="trailing" constant="3" id="qy8-ma-NPh"/>
+                                    <constraint firstAttribute="bottom" secondItem="HLt-Bg-Qh6" secondAttribute="bottom" constant="3" id="rR2-Or-pJl"/>
+                                    <constraint firstAttribute="height" constant="90" id="vFJ-xx-Omu"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="HLt-Bg-Qh6" firstAttribute="top" secondItem="ZFx-b1-b1f" secondAttribute="bottom" constant="12" id="7rW-4b-jCg"/>
+                            <constraint firstItem="oaU-lI-LNd" firstAttribute="top" secondItem="ZFx-b1-b1f" secondAttribute="bottom" constant="12" id="3tk-O6-Tbl"/>
+                            <constraint firstItem="oaU-lI-LNd" firstAttribute="centerX" secondItem="VFz-8X-wJ3" secondAttribute="centerX" id="O9x-eL-yIQ"/>
                             <constraint firstItem="c3R-is-uYU" firstAttribute="centerX" secondItem="VFz-8X-wJ3" secondAttribute="centerX" id="ToC-yO-zCF"/>
-                            <constraint firstItem="HLt-Bg-Qh6" firstAttribute="centerX" secondItem="VFz-8X-wJ3" secondAttribute="centerX" id="UHV-7w-JZy"/>
                             <constraint firstItem="ZFx-b1-b1f" firstAttribute="centerX" secondItem="VFz-8X-wJ3" secondAttribute="centerX" id="Xlu-5c-WU3"/>
-                            <constraint firstItem="c3R-is-uYU" firstAttribute="top" secondItem="HLt-Bg-Qh6" secondAttribute="bottom" constant="10" id="jC6-RJ-QXN"/>
-                            <constraint firstItem="HLt-Bg-Qh6" firstAttribute="centerY" secondItem="VFz-8X-wJ3" secondAttribute="centerY" id="vRW-Uw-O3d"/>
+                            <constraint firstItem="oaU-lI-LNd" firstAttribute="centerY" secondItem="VFz-8X-wJ3" secondAttribute="centerY" id="g9y-ne-pw6"/>
+                            <constraint firstItem="c3R-is-uYU" firstAttribute="top" secondItem="oaU-lI-LNd" secondAttribute="bottom" constant="10" id="yfw-dz-we5"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -67,6 +77,7 @@
             <size key="customSize" width="96" height="141"/>
             <connections>
                 <outlet property="choiceImageView" destination="ZFx-b1-b1f" id="Bw4-UX-Ygz"/>
+                <outlet property="containView" destination="oaU-lI-LNd" id="YLk-3E-wAh"/>
                 <outlet property="newImageView" destination="c3R-is-uYU" id="KJu-uL-mNb"/>
                 <outlet property="stickerImageView" destination="HLt-Bg-Qh6" id="lIl-wT-4df"/>
             </connections>

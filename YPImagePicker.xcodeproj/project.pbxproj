@@ -14,6 +14,16 @@
 		0D134ECB21A3A62100ADAB47 /* PhotoPermissionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D134ECA21A3A62100ADAB47 /* PhotoPermissionView.xib */; };
 		0D134ECF21A40CDC00ADAB47 /* YPFinishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D134ECD21A40CDC00ADAB47 /* YPFinishVC.swift */; };
 		0D134ED021A40CDC00ADAB47 /* YPFinishVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D134ECE21A40CDC00ADAB47 /* YPFinishVC.xib */; };
+		520650E621ED6EB1003DD83F /* YPStickerVC+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520650E521ED6EB1003DD83F /* YPStickerVC+.swift */; };
+		520650E821ED7173003DD83F /* YPStickerVC+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520650E721ED7173003DD83F /* YPStickerVC+Gestures.swift */; };
+		520650EA21ED884B003DD83F /* YPStickerVC+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520650E921ED884B003DD83F /* YPStickerVC+UIImageView.swift */; };
+		520650ED21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520650EB21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.swift */; };
+		520650EE21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520650EC21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.xib */; };
+		520650F421EF0E46003DD83F /* NotoSansCJKjp-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 520650F321EF0DF0003DD83F /* NotoSansCJKjp-Bold.otf */; };
+		520650F521EF0E4A003DD83F /* NotoSansCJKjp-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 520650F021EF0DED003DD83F /* NotoSansCJKjp-Light.otf */; };
+		520650F621EF0E4F003DD83F /* NotoSansCJKjp-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 520650F121EF0DEE003DD83F /* NotoSansCJKjp-Medium.otf */; };
+		520650F721EF0E53003DD83F /* NotoSansCJKjp-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 520650F221EF0DEF003DD83F /* NotoSansCJKjp-Regular.otf */; };
+		520650F921EF10AC003DD83F /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520650F821EF10AC003DD83F /* UIFont+Additions.swift */; };
 		74098DA321C7358F008F2E91 /* YPStickersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74098DA121C7358F008F2E91 /* YPStickersVC.swift */; };
 		74098DA421C7358F008F2E91 /* YPStickersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74098DA221C7358F008F2E91 /* YPStickersVC.xib */; };
 		74098DA821C744B7008F2E91 /* YPStickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74098DA621C744B7008F2E91 /* YPStickerCollectionViewCell.swift */; };
@@ -117,6 +127,16 @@
 		16550C5C214D5EE60090BADF /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3B0E1B962070669B0048E95B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4EA67521208A45080076D4E3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		520650E521ED6EB1003DD83F /* YPStickerVC+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YPStickerVC+.swift"; sourceTree = "<group>"; };
+		520650E721ED7173003DD83F /* YPStickerVC+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YPStickerVC+Gestures.swift"; sourceTree = "<group>"; };
+		520650E921ED884B003DD83F /* YPStickerVC+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YPStickerVC+UIImageView.swift"; sourceTree = "<group>"; };
+		520650EB21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPStickerSeperatorCollectionViewCell.swift; sourceTree = "<group>"; };
+		520650EC21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YPStickerSeperatorCollectionViewCell.xib; sourceTree = "<group>"; };
+		520650F021EF0DED003DD83F /* NotoSansCJKjp-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Light.otf"; sourceTree = "<group>"; };
+		520650F121EF0DEE003DD83F /* NotoSansCJKjp-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Medium.otf"; sourceTree = "<group>"; };
+		520650F221EF0DEF003DD83F /* NotoSansCJKjp-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Regular.otf"; sourceTree = "<group>"; };
+		520650F321EF0DF0003DD83F /* NotoSansCJKjp-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Bold.otf"; sourceTree = "<group>"; };
+		520650F821EF10AC003DD83F /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
 		52412A931CA6114A0073C4BE /* YPImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YPImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F01F9DC20DCC494007432E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		65BBCBAE2101BA4200277809 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -253,6 +273,17 @@
 			path = Finish;
 			sourceTree = "<group>";
 		};
+		520650EF21EF0D85003DD83F /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				520650F321EF0DF0003DD83F /* NotoSansCJKjp-Bold.otf */,
+				520650F021EF0DED003DD83F /* NotoSansCJKjp-Light.otf */,
+				520650F121EF0DEE003DD83F /* NotoSansCJKjp-Medium.otf */,
+				520650F221EF0DEF003DD83F /* NotoSansCJKjp-Regular.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		52412A891CA6114A0073C4BE = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +310,9 @@
 				74098DA521C7449A008F2E91 /* Views */,
 				74098DA121C7358F008F2E91 /* YPStickersVC.swift */,
 				74098DA221C7358F008F2E91 /* YPStickersVC.xib */,
+				520650E521ED6EB1003DD83F /* YPStickerVC+.swift */,
+				520650E721ED7173003DD83F /* YPStickerVC+Gestures.swift */,
+				520650E921ED884B003DD83F /* YPStickerVC+UIImageView.swift */,
 			);
 			path = Stickers;
 			sourceTree = "<group>";
@@ -288,6 +322,8 @@
 			children = (
 				74098DA621C744B7008F2E91 /* YPStickerCollectionViewCell.swift */,
 				74098DA721C744B7008F2E91 /* YPStickerCollectionViewCell.xib */,
+				520650EB21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.swift */,
+				520650EC21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,6 +356,7 @@
 		99019E542018CECC007325C2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				520650F821EF10AC003DD83F /* UIFont+Additions.swift */,
 				EB473E2C208E1ED800D16105 /* Extensions */,
 				99C6D6B11F1FB5C100711DB2 /* YPHelper.swift */,
 				99C6D6B41F1FB5C100711DB2 /* YPPhotoSaver.swift */,
@@ -365,6 +402,7 @@
 		99C6D69D1F1FB5C100711DB2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				520650EF21EF0D85003DD83F /* Font */,
 				99C6D6B81F1FB5C100711DB2 /* YPImagePicker.swift */,
 				99C6D6B51F1FB5C100711DB2 /* YPPickerVC.swift */,
 				99019E4F2018CDDF007325C2 /* Configuration */,
@@ -609,6 +647,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				520650F721EF0E53003DD83F /* NotoSansCJKjp-Regular.otf in Resources */,
+				520650F621EF0E4F003DD83F /* NotoSansCJKjp-Medium.otf in Resources */,
+				520650F521EF0E4A003DD83F /* NotoSansCJKjp-Light.otf in Resources */,
+				520650F421EF0E46003DD83F /* NotoSansCJKjp-Bold.otf in Resources */,
 				99C6D6B91F1FB5C100711DB2 /* Assets.xcassets in Resources */,
 				99C6D6BD1F1FB5C100711DB2 /* YPLibraryView.xib in Resources */,
 				0D134ECB21A3A62100ADAB47 /* PhotoPermissionView.xib in Resources */,
@@ -618,6 +660,7 @@
 				74098DA921C744B7008F2E91 /* YPStickerCollectionViewCell.xib in Resources */,
 				0D134EC521A39B5300ADAB47 /* LibraryPermissionView.xib in Resources */,
 				99C6D6BA1F1FB5C100711DB2 /* Localizable.strings in Resources */,
+				520650EE21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +696,7 @@
 				99278DA820512BD90059532E /* PreiOS10PhotoCapture.swift in Sources */,
 				0D134EC721A39DA500ADAB47 /* UIView+Extensions.swift in Sources */,
 				EBD2B641207B7D7400E711C2 /* YPMediaItem.swift in Sources */,
+				520650F921EF10AC003DD83F /* UIFont+Additions.swift in Sources */,
 				99C6D6C71F1FB5C100711DB2 /* YPPhotoFiltersVC.swift in Sources */,
 				99D1DC2B1F9788930047F0E0 /* YPImagePickerConfiguration.swift in Sources */,
 				99B8C4C3208F8EE900127119 /* YPLoadingView.swift in Sources */,
@@ -660,6 +704,7 @@
 				990FD297201B4A5F002A39A1 /* PHCachingImageManager+Extensions.swift in Sources */,
 				99CF6D23201B71DC00487F77 /* YPLibrary+LibraryChange.swift in Sources */,
 				99C6D6C51F1FB5C100711DB2 /* YPFilterCollectionViewCell.swift in Sources */,
+				520650ED21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.swift in Sources */,
 				990FD295201B3E59002A39A1 /* YPDragDirection.swift in Sources */,
 				99278DAE205140F60059532E /* YPPermissionDeniedPopup.swift in Sources */,
 				99CF6D21201B70A000487F77 /* YPLibraryVC+CollectionView.swift in Sources */,
@@ -692,6 +737,7 @@
 				EB1AB2EA20AC1DED00BFA79F /* CGFloat+Extensions.swift in Sources */,
 				99C6D6C21F1FB5C100711DB2 /* YPCameraVC.swift in Sources */,
 				990FD299201B67FE002A39A1 /* PHFetchResult+Extensions.swift in Sources */,
+				520650E621ED6EB1003DD83F /* YPStickerVC+.swift in Sources */,
 				EB473E1B208E1B7400D16105 /* NSFileManager+Extensions.swift in Sources */,
 				99A0529A1F20A19B005600B3 /* YPAlbumVC.swift in Sources */,
 				99A0529D1F20B45D005600B3 /* YPAlbumView.swift in Sources */,
@@ -710,6 +756,7 @@
 				99472DED2056E33700419F9E /* YPWordings.swift in Sources */,
 				99A0529F1F20B480005600B3 /* YPAlbumCell.swift in Sources */,
 				99C6D6BC1F1FB5C100711DB2 /* YPLibraryView.swift in Sources */,
+				520650EA21ED884B003DD83F /* YPStickerVC+UIImageView.swift in Sources */,
 				99A3C91220319231008D7E23 /* YPCropVC.swift in Sources */,
 				EB584BFB207B870F00265B38 /* YPSelectionsGalleryVC.swift in Sources */,
 				99019E512018CDED007325C2 /* YPImageSize.swift in Sources */,
@@ -721,6 +768,7 @@
 				99CF6D29201B900400487F77 /* LibraryMediaManager.swift in Sources */,
 				99CD962720D179FD009F5084 /* YPSelectionsGalleryView.swift in Sources */,
 				99C6D6BE1F1FB5C100711DB2 /* YPLibraryViewCell.swift in Sources */,
+				520650E821ED7173003DD83F /* YPStickerVC+Gestures.swift in Sources */,
 				99C6D6C41F1FB5C100711DB2 /* YPFilter.swift in Sources */,
 				99C6D6C91F1FB5C100711DB2 /* YPBottomPager.swift in Sources */,
 				0D134EC321A39B4700ADAB47 /* LibraryPermissionView.swift in Sources */,

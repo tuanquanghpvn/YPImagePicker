@@ -18,6 +18,13 @@
 	<string>3.5.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NotoSansCJKjp-Bold.otf</string>
+		<string>NotoSansCJKjp-Regular.otf</string>
+		<string>NotoSansCJKjp-Medium.otf</string>
+		<string>NotoSansCJKjp-Light.otf</string>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 </dict>

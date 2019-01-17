@@ -10,9 +10,16 @@ import UIKit
 
 class YPStickersVC: UIViewController {
     
+    struct CustomCell {
+        var isSeperator: Bool
+        var infoImage: YPSticker?
+    }
+    
+    var dataSource: [CustomCell] = []
+    
     // MARK: - IBOutlets
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageContainSticker: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
 
     // MARK: - Properties
@@ -22,6 +29,8 @@ class YPStickersVC: UIViewController {
     public var didCancel: (() -> Void)?
     public var selectedFilter: YPFilter?
     public var currentlySelectedImageThumbnail: UIImage?
+    public var imageViewToPan: UIImageView?
+    public var lastPanPoint: CGPoint?
     
     // MARK: - Private Properties
     
@@ -61,15 +70,23 @@ class YPStickersVC: UIViewController {
     
     fileprivate func configView() {
         navigationItem.title = "スタンプ選択"
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.notoSansCJKJP(style: .bold, size: 15),
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ]
+        configDataSource()
         // Image Current
-        imageView?.contentMode = .scaleAspectFit
-        imageView?.layer.cornerRadius = 10
-        imageView?.clipsToBounds = true
-        imageView?.image = currentlySelectedImageThumbnail ?? inputPhoto.originalImage
+        imageContainSticker?.contentMode = .scaleAspectFit
+        imageContainSticker?.layer.cornerRadius = 10
+        imageContainSticker?.clipsToBounds = true
+        imageContainSticker?.image = currentlySelectedImageThumbnail ?? inputPhoto.originalImage
+        imageContainSticker.isUserInteractionEnabled = true
         // Collection View
         let bundle = Bundle(for: YPPickerVC.self)
         let nib = UINib(nibName: "YPStickerCollectionViewCell", bundle: bundle)
+        let seperatorNib = UINib(nibName: "YPStickerSeperatorCollectionViewCell", bundle: bundle)
         collectionView?.register(nib, forCellWithReuseIdentifier: "YPStickerCollectionViewCell")
+        collectionView?.register(seperatorNib, forCellWithReuseIdentifier: "YPStickerSeperatorCollectionViewCell")
         collectionView?.alwaysBounceVertical = true
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView?.alwaysBounceVertical = false
@@ -80,6 +97,15 @@ class YPStickersVC: UIViewController {
         setupRightBarButton()
     }
     
+    fileprivate func configDataSource() {
+        for (index, item) in YPConfig.stickers.enumerated() {
+            dataSource.append(CustomCell(isSeperator: false, infoImage: item))
+            if (index + 1) < YPConfig.stickers.count && item.photoStampType != YPConfig.stickers[index + 1].photoStampType {
+                dataSource.append(CustomCell(isSeperator: true, infoImage: nil))
+            }
+        }
+    }
+    
     fileprivate func setupRightBarButton() {
         let rightBarButtonTitle = YPConfig.wordings.next
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightBarButtonTitle,
@@ -88,7 +114,7 @@ class YPStickersVC: UIViewController {
                                                             action: #selector(nextAction))
         navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
         navigationItem.rightBarButtonItem?.setTitleTextAttributes(
-            [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)],
+            [NSAttributedString.Key.font : UIFont.notoSansCJKJP(style: .bold, size: 14)],
             for: .normal)
     }
     
@@ -98,9 +124,9 @@ class YPStickersVC: UIViewController {
         let ypFinishVC = YPFinishVC(nibName: "YPFinishVC", bundle: bundle)
         ypFinishVC.didSave = didSave
         ypFinishVC.didCancel = didCancel
-        ypFinishVC.inputPhoto = inputPhoto
+        ypFinishVC.inputPhoto = YPMediaPhoto(image: UIImage.imageWithView(imageContainSticker))
         ypFinishVC.selectedFilter = selectedFilter
-        ypFinishVC.currentlySelectedImageThumbnail = currentlySelectedImageThumbnail
+        ypFinishVC.currentlySelectedImageThumbnail = UIImage.imageWithView(imageContainSticker)
         navigationController?.pushViewController(ypFinishVC, animated: true)
     }
 }
@@ -109,27 +135,52 @@ class YPStickersVC: UIViewController {
 extension YPStickersVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return YPConfig.stickers.count
+        return dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let selectedSticker = YPConfig.stickers[indexPath.row]
-        let isAlreadyChoice = choiceStickers.firstIndex(where: { $0.id == selectedSticker.id }) != nil ? true : false
-        if let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "YPStickerCollectionViewCell",
-            for: indexPath) as? YPStickerCollectionViewCell {
-            cell.configData(ypSticker: selectedSticker, isAlreadyChoice: isAlreadyChoice)
-            return cell
+        var cell = UICollectionViewCell()
+        
+        let selectedObject = dataSource[indexPath.row]
+        if selectedObject.isSeperator {
+            if let cellInfo = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "YPStickerSeperatorCollectionViewCell",
+                for: indexPath) as? YPStickerSeperatorCollectionViewCell {
+                cell = cellInfo
+            }
+        } else {
+            if let selectedSticker = selectedObject.infoImage {
+                let isAlreadyChoice = choiceStickers.firstIndex(where: { $0.id == selectedSticker.id }) != nil ? true : false
+                if let cellInfo = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "YPStickerCollectionViewCell",
+                    for: indexPath) as? YPStickerCollectionViewCell {
+                    cellInfo.configData(ypSticker: selectedSticker, isAlreadyChoice: isAlreadyChoice)
+                    cell = cellInfo
+                }
+            }
         }
-        return UICollectionViewCell()
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedSticker = YPConfig.stickers[indexPath.row]
-        if let alreadyChoiceIndex = choiceStickers.firstIndex(where: { $0.id == selectedSticker.id }) {
-            choiceStickers.remove(at: alreadyChoiceIndex)
-        } else {
-            choiceStickers.append(selectedSticker)
+        if !dataSource[indexPath.row].isSeperator {
+            if let selectedSticker = dataSource[indexPath.row].infoImage {
+                if let alreadyChoiceIndex = choiceStickers.firstIndex(where: { $0.id == selectedSticker.id }) {
+                    choiceStickers.remove(at: alreadyChoiceIndex)
+                    if let image = selectedSticker.image {
+                        let imageView = UIImageView(image: image)
+                        imageView.tag = selectedSticker.id
+                        deleteImageInView(imageView: imageView)
+                    }
+                } else {
+                    choiceStickers.append(selectedSticker)
+                    if let image = selectedSticker.image {
+                        let imageView = UIImageView(image: image)
+                        imageView.tag = selectedSticker.id
+                        didSelectImage(imageView: imageView)
+                    }
+                }
+            }
         }
     }
 }
@@ -140,9 +191,14 @@ extension YPStickersVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLa
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let widthPerItem: CGFloat = 90.0
         let heightPerItem: CGFloat = 150.0
-        return CGSize(width: widthPerItem, height: heightPerItem)
+        let selectedObject = dataSource[indexPath.row]
+        if selectedObject.isSeperator {
+            return CGSize(width: 15, height: heightPerItem)
+
+        } else {
+            return CGSize(width: 90.0, height: heightPerItem)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,

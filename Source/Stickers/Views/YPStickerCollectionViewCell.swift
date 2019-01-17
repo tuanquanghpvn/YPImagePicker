@@ -13,14 +13,15 @@ class YPStickerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var stickerImageView: UIImageView!
     @IBOutlet weak var newImageView: UIImageView!
     @IBOutlet weak var choiceImageView: UIImageView!
-
+    @IBOutlet weak var containView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configView()
     }
 
     fileprivate func configView() {
-        stickerImageView.layer.cornerRadius = 5
+        containView.layer.cornerRadius = 5
     }
     
     func configData(ypSticker: YPSticker, isAlreadyChoice: Bool) {

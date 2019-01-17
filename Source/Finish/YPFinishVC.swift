@@ -47,8 +47,13 @@ class YPFinishVC: UIViewController {
     
     private func configView() {
         title = "確認・完了"
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.notoSansCJKJP(style: .bold, size: 15),
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ]
         removeBackButtonTitle()
         saveButton.layer.cornerRadius = saveButton.bounds.height / 2
+        saveButton.titleLabel?.font = UIFont.notoSansCJKJP(style: .bold, size: 15)
         imageView?.contentMode = .scaleAspectFit
         imageView?.layer.cornerRadius = 10
         imageView?.clipsToBounds = true
@@ -83,6 +88,7 @@ class YPFinishVC: UIViewController {
                 self.inputPhoto.modifiedImage = nil
             }
             DispatchQueue.main.async {
+                UIImageWriteToSavedPhotosAlbum(self.currentlySelectedImageThumbnail ?? self.inputPhoto.originalImage, self, nil, nil)
                 self.didSave?(YPMediaItem.photo(p: self.inputPhoto))
             }
         }

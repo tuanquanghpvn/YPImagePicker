@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YPStickersVC" customModule="YPImagePicker" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="2Zx-pY-mYb" id="q20-SP-aoW"/>
-                <outlet property="imageView" destination="tQR-aH-WPL" id="n0C-WJ-ISq"/>
+                <outlet property="imageContainSticker" destination="tQR-aH-WPL" id="n0C-WJ-ISq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
