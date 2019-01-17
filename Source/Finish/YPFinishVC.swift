@@ -88,7 +88,7 @@ class YPFinishVC: UIViewController {
                 self.inputPhoto.modifiedImage = nil
             }
             DispatchQueue.main.async {
-                UIImageWriteToSavedPhotosAlbum(self.currentlySelectedImageThumbnail ?? self.inputPhoto.originalImage, self, nil, nil)
+//                UIImageWriteToSavedPhotosAlbum(self.currentlySelectedImageThumbnail ?? self.inputPhoto.originalImage, self, nil, nil)
                 self.didSave?(YPMediaItem.photo(p: self.inputPhoto))
             }
         }

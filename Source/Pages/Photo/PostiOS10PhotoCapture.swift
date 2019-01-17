@@ -22,7 +22,7 @@ class PostiOS10PhotoCapture: NSObject, YPPhotoCapture, AVCapturePhotoCaptureDele
     var isPreviewSetup: Bool = false
     var previewView: UIView!
     var videoLayer: AVCaptureVideoPreviewLayer!
-    var currentFlashMode: YPFlashMode = .on
+    var currentFlashMode: YPFlashMode = .off
     var hasFlash: Bool {
         guard let device = device else { return false }
         return device.hasFlash
