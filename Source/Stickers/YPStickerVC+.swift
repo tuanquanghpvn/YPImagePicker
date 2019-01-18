@@ -12,7 +12,7 @@ import UIKit
 protocol YPStickersVCDelegate {
     func didSelectView(view: UIView)
     func didSelectImage(imageView: UIImageView)
-    func deleteImageInView(imageView: UIImageView)
+    func deleteImageInView(id: Int)
 }
 
 extension YPStickersVC: YPStickersVCDelegate {
@@ -24,20 +24,36 @@ extension YPStickersVC: YPStickersVCDelegate {
     }
     
     func didSelectImage(imageView: UIImageView) {
-        let xoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.width / 4)) + 100)
-        let yoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.height / 4)) + 100)
+        // Height And With Of Image
+        let widthInPoints = imageView.image?.size.width ?? 160.0
+        let heightInPoints = imageView.image?.size.height ?? 120.0
+        
+        // Set Position
+        var xoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.width)))
+        var yoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.height)))
+        if xoffset + widthInPoints >= imageContainSticker.frame.maxX {
+            xoffset = xoffset - widthInPoints
+        }
+        if yoffset + heightInPoints >= imageContainSticker.frame.maxY {
+            yoffset = yoffset - heightInPoints
+        }
         
         imageView.contentMode = .scaleAspectFit
-        imageView.frame = CGRect(x: xoffset, y: yoffset, width: 500, height: 500)
+        imageView.frame = CGRect(x: xoffset, y: yoffset, width: widthInPoints, height: heightInPoints)
+        imageView.transform = CGAffineTransform(scaleX: 2.2, y: 2.2)
+        imageView.alpha = 0
         addGestures(view: imageView)
         self.imageContainSticker.addSubview(imageView)
-        UIView.animate(withDuration: 0.25) { () -> Void in
-            imageView.frame.size = CGSize(width: 150, height: 150)
+        UIView.animate(withDuration: 0.3, animations: {
+            imageView.alpha = 1
+            imageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        }) { (_) in
+            imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
     }
     
-    func deleteImageInView(imageView: UIImageView) {
-        if let viewWithTag = self.imageContainSticker.viewWithTag(imageView.tag) {
+    func deleteImageInView(id: Int) {
+        if let viewWithTag = self.imageContainSticker.viewWithTag(id) {
             UIView.animate(withDuration: 0.2, animations: {
                 viewWithTag.frame.size = CGSize(width: 0, height: 0)
             },

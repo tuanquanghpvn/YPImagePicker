@@ -54,10 +54,15 @@
                                     <constraint firstAttribute="height" constant="90" id="vFJ-xx-Omu"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="IIx-KV-9CF">
+                                <rect key="frame" x="40" y="60" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="IIx-KV-9CF" firstAttribute="centerX" secondItem="VFz-8X-wJ3" secondAttribute="centerX" id="27R-56-p25"/>
                             <constraint firstItem="oaU-lI-LNd" firstAttribute="top" secondItem="ZFx-b1-b1f" secondAttribute="bottom" constant="12" id="3tk-O6-Tbl"/>
+                            <constraint firstItem="IIx-KV-9CF" firstAttribute="centerY" secondItem="VFz-8X-wJ3" secondAttribute="centerY" id="9yD-Wf-NKs"/>
                             <constraint firstItem="oaU-lI-LNd" firstAttribute="centerX" secondItem="VFz-8X-wJ3" secondAttribute="centerX" id="O9x-eL-yIQ"/>
                             <constraint firstItem="c3R-is-uYU" firstAttribute="centerX" secondItem="VFz-8X-wJ3" secondAttribute="centerX" id="ToC-yO-zCF"/>
                             <constraint firstItem="ZFx-b1-b1f" firstAttribute="centerX" secondItem="VFz-8X-wJ3" secondAttribute="centerX" id="Xlu-5c-WU3"/>
@@ -78,6 +83,7 @@
             <connections>
                 <outlet property="choiceImageView" destination="ZFx-b1-b1f" id="Bw4-UX-Ygz"/>
                 <outlet property="containView" destination="oaU-lI-LNd" id="YLk-3E-wAh"/>
+                <outlet property="loadingIndicator" destination="IIx-KV-9CF" id="rrr-Dp-ora"/>
                 <outlet property="newImageView" destination="c3R-is-uYU" id="KJu-uL-mNb"/>
                 <outlet property="stickerImageView" destination="HLt-Bg-Qh6" id="lIl-wT-4df"/>
             </connections>
