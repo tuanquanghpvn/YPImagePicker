@@ -28,18 +28,25 @@ extension YPStickersVC: YPStickersVCDelegate {
         let widthInPoints = imageView.image?.size.width ?? 160.0
         let heightInPoints = imageView.image?.size.height ?? 120.0
         
+        let stickerRatio = widthInPoints / heightInPoints
+        let imageWithStickerRatio = widthInPoints / imageContainSticker.frame.width
+        
         // Set Position
-        var xoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.width)))
-        var yoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.height)))
-        if xoffset + widthInPoints >= imageContainSticker.frame.maxX {
-            xoffset = xoffset - widthInPoints
-        }
-        if yoffset + heightInPoints >= imageContainSticker.frame.maxY {
-            yoffset = yoffset - heightInPoints
+        var xoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.width / 2)))
+        var yoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.height / 2)))
+        if xoffset + widthInPoints >= imageContainSticker.frame.maxX && widthInPoints <= imageContainSticker.frame.maxX * 0.9 {
+            xoffset = abs(xoffset - widthInPoints)
         }
         
+        if yoffset + heightInPoints >= imageContainSticker.frame.maxY && heightInPoints <= imageContainSticker.frame.maxY * 0.9 {
+            yoffset = abs(yoffset - heightInPoints)
+        }
+        
+        let widthSticker = imageWithStickerRatio > 0.8 ? imageContainSticker.frame.width / 2 : widthInPoints
+        let heightSticker = widthSticker / stickerRatio
+        
         imageView.contentMode = .scaleAspectFit
-        imageView.frame = CGRect(x: xoffset, y: yoffset, width: widthInPoints, height: heightInPoints)
+        imageView.frame = CGRect(x: xoffset, y: yoffset, width: widthSticker, height: heightSticker)
         imageView.transform = CGAffineTransform(scaleX: 2.2, y: 2.2)
         imageView.alpha = 0
         addGestures(view: imageView)
@@ -47,9 +54,10 @@ extension YPStickersVC: YPStickersVCDelegate {
         UIView.animate(withDuration: 0.3, animations: {
             imageView.alpha = 1
             imageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        }) { (_) in
-            imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
-        }
+        }, completion: { _ in UIView.animate(withDuration: 0.1) {
+                imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+        })
     }
     
     func deleteImageInView(id: Int) {
