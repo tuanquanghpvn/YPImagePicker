@@ -17,13 +17,13 @@ public enum PhotoStampType: String {
 public struct YPSticker {
     public var id: Int
     public var isNew: Bool
-    public var image: UIImage?
+    public var imageUrl: URL?
     public var photoStampType: PhotoStampType
     
-    public init(id: Int, isNew: Bool, photoStampType: PhotoStampType, image: UIImage?) {
+    public init(id: Int, isNew: Bool, photoStampType: PhotoStampType, imageUrl: URL?) {
         self.id = id
         self.isNew = isNew
-        self.image = image
+        self.imageUrl = imageUrl
         self.photoStampType = photoStampType
     }
 }

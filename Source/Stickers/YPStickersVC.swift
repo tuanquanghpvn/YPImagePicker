@@ -124,7 +124,10 @@ class YPStickersVC: UIViewController {
         let ypFinishVC = YPFinishVC(nibName: "YPFinishVC", bundle: bundle)
         ypFinishVC.didSave = didSave
         ypFinishVC.didCancel = didCancel
-        ypFinishVC.inputPhoto = YPMediaPhoto(image: UIImage.imageWithView(imageContainSticker))
+        ypFinishVC.inputPhoto = YPMediaPhoto(image: UIImage.imageWithView(imageContainSticker),
+                                             exifMeta: nil,
+                                             fromCamera: true,
+                                             asset: nil)
         ypFinishVC.selectedFilter = selectedFilter
         ypFinishVC.currentlySelectedImageThumbnail = UIImage.imageWithView(imageContainSticker)
         navigationController?.pushViewController(ypFinishVC, animated: true)
@@ -163,21 +166,20 @@ extension YPStickersVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedObject = dataSource[indexPath.row]
+        guard !selectedObject.isSeperator else { return }
         if !dataSource[indexPath.row].isSeperator {
             if let selectedSticker = dataSource[indexPath.row].infoImage {
                 if let alreadyChoiceIndex = choiceStickers.firstIndex(where: { $0.id == selectedSticker.id }) {
                     choiceStickers.remove(at: alreadyChoiceIndex)
-                    if let image = selectedSticker.image {
-                        let imageView = UIImageView(image: image)
-                        imageView.tag = selectedSticker.id
-                        deleteImageInView(imageView: imageView)
-                    }
+                    deleteImageInView(id: selectedSticker.id)
                 } else {
+                    guard let stickerUrl = selectedSticker.imageUrl else { return }
                     choiceStickers.append(selectedSticker)
-                    if let image = selectedSticker.image {
+                    DownloadHelpers.downloadImage(url: stickerUrl) { [weak self, selectedSticker] (image) in
                         let imageView = UIImageView(image: image)
                         imageView.tag = selectedSticker.id
-                        didSelectImage(imageView: imageView)
+                        self?.didSelectImage(imageView: imageView)
                     }
                 }
             }
