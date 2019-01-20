@@ -12,23 +12,7 @@ import UIKit
 extension YPStickersVC: UIGestureRecognizerDelegate {
     @objc func panGesture(_ recognizer: UIPanGestureRecognizer) {
         if let view = recognizer.view {
-            if view is UIImageView {
-                if recognizer.state == .began {
-                    for imageView in subImageViews(view: imageContainSticker) {
-                        let location = recognizer.location(in: imageView)
-                        let alpha = imageView.alphaAtPoint(location)
-                        if alpha > 0 {
-                            imageViewToPan = imageView
-                            break
-                        }
-                    }
-                }
-                if imageViewToPan != nil {
-                    moveView(view: imageViewToPan!, recognizer: recognizer)
-                }
-            } else {
-                moveView(view: view, recognizer: recognizer)
-            }
+            moveView(view: view, recognizer: recognizer)
         }
     }
     
@@ -68,28 +52,14 @@ extension YPStickersVC: UIGestureRecognizerDelegate {
             if view is UIImageView {
                 view.superview?.bringSubviewToFront(view)
                 if recognizer.state == .began {
-                    for imageView in subImageViews(view: imageContainSticker) {
-                        let location = recognizer.location(in: imageView)
-                        let alpha = imageView.alphaAtPoint(location)
-                        if alpha > 0 {
-                            UIView.animate(withDuration: 0.1, animations: {
-                                view.transform = view.transform.scaledBy(x: 1.5, y: 1.5)
-                            })
-                            break
-                        }
-                    }
+                    UIView.animate(withDuration: 0.1, animations: {
+                        view.transform = view.transform.scaledBy(x: 1.5, y: 1.5)
+                    })
                 }
                 if recognizer.state == .ended || recognizer.state == .failed {
-                    for imageView in subImageViews(view: imageContainSticker) {
-                        let location = recognizer.location(in: imageView)
-                        let alpha = imageView.alphaAtPoint(location)
-                        if alpha > 0 {
-                            UIView.animate(withDuration: 0.1, animations: {
-                                view.transform = view.transform.scaledBy(x: 2 / 3, y: 2 / 3)
-                            })
-                            break
-                        }
-                    }
+                    UIView.animate(withDuration: 0.1, animations: {
+                        view.transform = view.transform.scaledBy(x: 2 / 3, y: 2 / 3)
+                    })
                 }
             }
         }
@@ -125,11 +95,6 @@ extension YPStickersVC: UIGestureRecognizerDelegate {
                               y: view.center.y + recognizer.translation(in: imageContainSticker).y)
         
         recognizer.setTranslation(CGPoint.zero, in: imageContainSticker)
-        
-        if recognizer.state == .ended {
-            imageViewToPan = nil
-            lastPanPoint = nil
-        }
     }
     
     func subImageViews(view: UIView) -> [UIImageView] {

@@ -14,6 +14,7 @@ class YPFinishVC: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var containView: UIView!
     
     // MARK: - Properties
 
@@ -78,18 +79,7 @@ class YPFinishVC: UIViewController {
     @IBAction func saveButtonClicked(_ sender: AnyObject) {
         navigationItem.rightBarButtonItem = YPLoaders.defaultLoader
         saveButton?.isEnabled = false
-        DispatchQueue.global().async {
-            if let f = self.selectedFilter,
-                let applier = f.applier,
-                let ciImage = self.inputPhoto.originalImage.toCIImage(),
-                let modifiedFullSizeImage = applier(ciImage) {
-                self.inputPhoto.modifiedImage = modifiedFullSizeImage.toUIImage()
-            } else {
-                self.inputPhoto.modifiedImage = nil
-            }
-            DispatchQueue.main.async {
-                self.didSave?(YPMediaItem.photo(p: self.inputPhoto))
-            }
-        }
+        self.inputPhoto.modifiedImage = UIImage.imageWithView(self.containView)
+        self.didSave?(YPMediaItem.photo(p: self.inputPhoto))
     }
 }

@@ -90,6 +90,6 @@ extension YPStickersVC: YPStickersVCDelegate {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(YPStickersVC.longPressGesture))
         longPressGesture.minimumPressDuration = 0.05
         longPressGesture.delegate = self
-//        view.addGestureRecognizer(longPressGesture)
+        view.addGestureRecognizer(longPressGesture)
     }
 }
