@@ -42,7 +42,7 @@ extension YPStickersVC: YPStickersVCDelegate {
             yoffset = abs(yoffset - heightInPoints)
         }
         
-        let widthSticker = imageWithStickerRatio > 0.8 ? imageContainSticker.frame.width / 2 : widthInPoints
+        let widthSticker = imageWithStickerRatio > 0.8 ? imageContainSticker.frame.width * 0.75 : widthInPoints
         let heightSticker = widthSticker / stickerRatio
         
         imageView.contentMode = .scaleAspectFit
