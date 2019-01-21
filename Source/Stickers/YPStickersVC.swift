@@ -29,8 +29,6 @@ class YPStickersVC: UIViewController {
     public var didCancel: (() -> Void)?
     public var selectedFilter: YPFilter?
     public var currentlySelectedImageThumbnail: UIImage?
-    public var imageViewToPan: UIImageView?
-    public var lastPanPoint: CGPoint?
     
     // MARK: - Private Properties
     
@@ -122,12 +120,10 @@ class YPStickersVC: UIViewController {
         guard let didSave = didSave else { return print("Don't have saveCallback") }
         let bundle = Bundle(for: YPImagePicker.self)
         let ypFinishVC = YPFinishVC(nibName: "YPFinishVC", bundle: bundle)
+        self.inputPhoto.modifiedImage = UIImage.imageWithView(imageContainSticker)
         ypFinishVC.didSave = didSave
         ypFinishVC.didCancel = didCancel
-        ypFinishVC.inputPhoto = YPMediaPhoto(image: UIImage.imageWithView(imageContainSticker),
-                                             exifMeta: nil,
-                                             fromCamera: true,
-                                             asset: nil)
+        ypFinishVC.inputPhoto = inputPhoto
         ypFinishVC.selectedFilter = selectedFilter
         ypFinishVC.currentlySelectedImageThumbnail = UIImage.imageWithView(imageContainSticker)
         navigationController?.pushViewController(ypFinishVC, animated: true)

@@ -20,6 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YPFinishVC" customModule="YPImagePicker" customModuleProvider="target">
             <connections>
+                <outlet property="containView" destination="Vi1-ww-Okm" id="8hr-BY-gx5"/>
                 <outlet property="imageView" destination="QRi-go-e52" id="ceE-b3-LkV"/>
                 <outlet property="saveButton" destination="Kzg-VC-2Bt" id="Pf7-Ce-QgA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,12 +34,24 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wh-Gv-OR3">
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QRi-go-e52">
-                            <rect key="frame" x="20" y="20" width="335" height="335"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vi1-ww-Okm">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QRi-go-e52">
+                                    <rect key="frame" x="20" y="20" width="335" height="335"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="QRi-go-e52" secondAttribute="height" multiplier="1:1" id="3rz-ox-ivt"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="QRi-go-e52" secondAttribute="height" multiplier="1:1" id="3rz-ox-ivt"/>
+                                <constraint firstItem="QRi-go-e52" firstAttribute="leading" secondItem="Vi1-ww-Okm" secondAttribute="leading" constant="20" id="5HH-rS-Rcr"/>
+                                <constraint firstAttribute="bottom" secondItem="QRi-go-e52" secondAttribute="bottom" constant="20" id="a4d-hC-BSB"/>
+                                <constraint firstAttribute="trailing" secondItem="QRi-go-e52" secondAttribute="trailing" constant="20" id="bUJ-tg-4m5"/>
+                                <constraint firstItem="QRi-go-e52" firstAttribute="top" secondItem="Vi1-ww-Okm" secondAttribute="top" constant="20" id="cGo-Mc-vy0"/>
                             </constraints>
-                        </imageView>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsU-Nc-rRG">
                             <rect key="frame" x="0.0" y="375" width="375" height="272"/>
                             <subviews>
@@ -84,13 +97,13 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="QRi-go-e52" secondAttribute="trailing" constant="20" id="4RC-gF-8Jz"/>
-                        <constraint firstItem="wsU-Nc-rRG" firstAttribute="top" secondItem="QRi-go-e52" secondAttribute="bottom" constant="20" id="M90-b2-qcy"/>
-                        <constraint firstItem="QRi-go-e52" firstAttribute="leading" secondItem="1wh-Gv-OR3" secondAttribute="leading" constant="20" id="OgW-xU-ihs"/>
+                        <constraint firstAttribute="trailing" secondItem="Vi1-ww-Okm" secondAttribute="trailing" id="Oui-lY-ycz"/>
                         <constraint firstAttribute="bottom" secondItem="wsU-Nc-rRG" secondAttribute="bottom" id="ZSd-AM-ZFU"/>
-                        <constraint firstItem="QRi-go-e52" firstAttribute="top" secondItem="1wh-Gv-OR3" secondAttribute="top" constant="20" id="a4e-Vh-aPn"/>
+                        <constraint firstItem="Vi1-ww-Okm" firstAttribute="leading" secondItem="1wh-Gv-OR3" secondAttribute="leading" id="bgs-vj-iAV"/>
                         <constraint firstAttribute="trailing" secondItem="wsU-Nc-rRG" secondAttribute="trailing" id="cct-X9-WaY"/>
                         <constraint firstItem="wsU-Nc-rRG" firstAttribute="leading" secondItem="1wh-Gv-OR3" secondAttribute="leading" id="ct7-MP-IQ2"/>
+                        <constraint firstItem="wsU-Nc-rRG" firstAttribute="top" secondItem="Vi1-ww-Okm" secondAttribute="bottom" id="dLC-tT-DyE"/>
+                        <constraint firstItem="Vi1-ww-Okm" firstAttribute="top" secondItem="1wh-Gv-OR3" secondAttribute="top" id="fVR-Gb-eEk"/>
                     </constraints>
                 </view>
             </subviews>
@@ -102,6 +115,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1wh-Gv-OR3" secondAttribute="trailing" id="ggA-1K-5Y1"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="133.59999999999999" y="124.58770614692655"/>
         </view>
     </objects>
 </document>

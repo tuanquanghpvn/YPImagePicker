@@ -42,7 +42,7 @@ extension YPStickersVC: YPStickersVCDelegate {
             yoffset = abs(yoffset - heightInPoints)
         }
         
-        let widthSticker = imageWithStickerRatio > 0.8 ? imageContainSticker.frame.width / 2 : widthInPoints
+        let widthSticker = imageWithStickerRatio > 0.8 ? imageContainSticker.frame.width * 0.75 : widthInPoints
         let heightSticker = widthSticker / stickerRatio
         
         imageView.contentMode = .scaleAspectFit
@@ -90,6 +90,6 @@ extension YPStickersVC: YPStickersVCDelegate {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(YPStickersVC.longPressGesture))
         longPressGesture.minimumPressDuration = 0.05
         longPressGesture.delegate = self
-//        view.addGestureRecognizer(longPressGesture)
+        view.addGestureRecognizer(longPressGesture)
     }
 }
