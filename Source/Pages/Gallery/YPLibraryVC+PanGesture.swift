@@ -35,7 +35,7 @@ public class PanGestureHelper: NSObject, UIGestureRecognizerDelegate {
         set {
             if newValue != isImageShown {
                 self._isImageShown = newValue
-                v.assetViewContainer.isShown = newValue
+                v.assetViewContainer.isShown = YPConfig.showCropLine ? newValue : false
                 // Update imageCropContainer
                 v.assetZoomableView.isScrollEnabled = isImageShown
             }

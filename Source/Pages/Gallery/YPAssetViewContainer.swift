@@ -20,7 +20,7 @@ class YPAssetViewContainer: UIView {
     public let squareCropButton = UIButton()
     public let multipleSelectionButton = UIButton()
     public var onlySquare = YPConfig.library.onlySquare
-    public var isShown = true
+    public var isShown = YPConfig.showCropLine
     
     private let spinner = UIActivityIndicatorView(style: .white)
     private var shouldCropToSquare = false
