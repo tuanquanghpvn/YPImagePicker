@@ -31,22 +31,25 @@ extension YPStickersVC: YPStickersVCDelegate {
         let stickerRatio = widthInPoints / heightInPoints
         let imageWithStickerRatio = widthInPoints / imageContainSticker.frame.width
         
-        // Set Position
-        var xoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.width / 2)))
-        var yoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.height / 2)))
-        if xoffset + widthInPoints >= imageContainSticker.frame.maxX && widthInPoints <= imageContainSticker.frame.maxX * 0.9 {
-            xoffset = abs(xoffset - widthInPoints)
-        }
-        
-        if yoffset + heightInPoints >= imageContainSticker.frame.maxY && heightInPoints <= imageContainSticker.frame.maxY * 0.9 {
-            yoffset = abs(yoffset - heightInPoints)
-        }
+//        // Set custom offset for image in super view when user want to set image appear random in view
+//        var xoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.width / 2)))
+//        var yoffset = CGFloat(arc4random_uniform(UInt32(imageContainSticker.bounds.height / 2)))
+//        if xoffset + widthInPoints >= imageContainSticker.frame.maxX && widthInPoints <= imageContainSticker.frame.maxX * 0.9 {
+//            xoffset = abs(xoffset - widthInPoints)
+//        }
+//
+//        if yoffset + heightInPoints >= imageContainSticker.frame.maxY && heightInPoints <= imageContainSticker.frame.maxY * 0.9 {
+//            yoffset = abs(yoffset - heightInPoints)
+//        }
         
         let widthSticker = imageWithStickerRatio > 0.8 ? imageContainSticker.frame.width * 0.75 : widthInPoints
         let heightSticker = widthSticker / stickerRatio
         
         imageView.contentMode = .scaleAspectFit
-        imageView.frame = CGRect(x: xoffset, y: yoffset, width: widthSticker, height: heightSticker)
+        imageView.frame = CGRect(x: (imageContainSticker.frame.maxX - widthSticker) / 2,
+                                 y: (imageContainSticker.frame.maxY - heightSticker) / 2,
+                                 width: widthSticker,
+                                 height: heightSticker)
         imageView.transform = CGAffineTransform(scaleX: 2.2, y: 2.2)
         imageView.alpha = 0
         addGestures(view: imageView)

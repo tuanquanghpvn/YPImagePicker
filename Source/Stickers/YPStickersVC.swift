@@ -16,6 +16,8 @@ class YPStickersVC: UIViewController {
     }
     
     var dataSource: [CustomCell] = []
+    var countImageSticker = 0
+    var countTextSticker = 0
     
     // MARK: - IBOutlets
     
@@ -171,11 +173,31 @@ extension YPStickersVC: UICollectionViewDataSource {
                     deleteImageInView(id: selectedSticker.id)
                 } else {
                     guard let stickerUrl = selectedSticker.imageUrl else { return }
-                    choiceStickers.append(selectedSticker)
-                    DownloadHelpers.downloadImage(url: stickerUrl) { [weak self, selectedSticker] (image) in
-                        let imageView = UIImageView(image: image)
-                        imageView.tag = selectedSticker.id
-                        self?.didSelectImage(imageView: imageView)
+                    if choiceStickers.count == 0 {
+                        choiceStickers.append(selectedSticker)
+                        DownloadHelpers.downloadImage(url: stickerUrl) { [weak self, selectedSticker] (image) in
+                            let imageView = UIImageView(image: image)
+                            imageView.tag = selectedSticker.id
+                            self?.didSelectImage(imageView: imageView)
+                        }
+                    } else {
+                        if let alreadyTypeIndex = choiceStickers.firstIndex(where: { $0.photoStampType == selectedSticker.photoStampType }) {
+                            DownloadHelpers.downloadImage(url: stickerUrl) { [weak self, selectedSticker] (image) in
+                                let imageView = UIImageView(image: image)
+                                imageView.tag = selectedSticker.id
+                                self?.didSelectImage(imageView: imageView)
+                            }
+                            deleteImageInView(id: choiceStickers[alreadyTypeIndex].id)
+                            choiceStickers.remove(at: alreadyTypeIndex)
+                            choiceStickers.append(selectedSticker)
+                        } else {
+                            choiceStickers.append(selectedSticker)
+                            DownloadHelpers.downloadImage(url: stickerUrl) { [weak self, selectedSticker] (image) in
+                                let imageView = UIImageView(image: image)
+                                imageView.tag = selectedSticker.id
+                                self?.didSelectImage(imageView: imageView)
+                            }
+                        }
                     }
                 }
             }
