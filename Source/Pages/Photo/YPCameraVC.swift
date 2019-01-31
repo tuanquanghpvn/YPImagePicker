@@ -191,6 +191,9 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
         }
         permissionView = PhotoPermissionView.fromNib()
         permissionView.frame = view.bounds
+        permissionView.toSetting = { [weak self] in
+            self?.showAlertToSetting()
+        }
         view.addSubview(permissionView)
         view.bringSubviewToFront(permissionView)
     }
@@ -223,5 +226,23 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
                 }
             })
         }
+    }
+    
+    func showAlertToSetting() {
+        let alert = UIAlertController(title: "ライブラリの利用を許可してください。",
+                                      message: "ライブラリの利用を許可するとあなたのカメラロールの写真を加工、加工した画像を保存することができます。",
+                                      preferredStyle: UIAlertController.Style.alert)
+        
+        let okAction = UIAlertAction(title: "許可しない", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        
+        let settingsAction = UIAlertAction(title: "許可", style: .default, handler: { _ in
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.openURL(settingsUrl)
+            }
+        })
+        alert.addAction(settingsAction)
+        navigationController?.present(alert, animated: true, completion: nil)
     }
 }
