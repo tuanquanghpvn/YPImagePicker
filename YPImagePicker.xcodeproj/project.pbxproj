@@ -24,6 +24,8 @@
 		520650F621EF0E4F003DD83F /* NotoSansCJKjp-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 520650F121EF0DEE003DD83F /* NotoSansCJKjp-Medium.otf */; };
 		520650F721EF0E53003DD83F /* NotoSansCJKjp-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 520650F221EF0DEF003DD83F /* NotoSansCJKjp-Regular.otf */; };
 		520650F921EF10AC003DD83F /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520650F821EF10AC003DD83F /* UIFont+Additions.swift */; };
+		5251F8B8221CFB8C000A9C24 /* NoImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5251F8B7221CFB8C000A9C24 /* NoImageView.xib */; };
+		5251F8BA221CFBA3000A9C24 /* NoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251F8B9221CFBA3000A9C24 /* NoImageView.swift */; };
 		74098DA321C7358F008F2E91 /* YPStickersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74098DA121C7358F008F2E91 /* YPStickersVC.swift */; };
 		74098DA421C7358F008F2E91 /* YPStickersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74098DA221C7358F008F2E91 /* YPStickersVC.xib */; };
 		74098DA821C744B7008F2E91 /* YPStickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74098DA621C744B7008F2E91 /* YPStickerCollectionViewCell.swift */; };
@@ -139,6 +141,8 @@
 		520650F321EF0DF0003DD83F /* NotoSansCJKjp-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Bold.otf"; sourceTree = "<group>"; };
 		520650F821EF10AC003DD83F /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
 		52412A931CA6114A0073C4BE /* YPImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YPImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5251F8B7221CFB8C000A9C24 /* NoImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoImageView.xib; sourceTree = "<group>"; };
+		5251F8B9221CFBA3000A9C24 /* NoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoImageView.swift; sourceTree = "<group>"; };
 		5F01F9DC20DCC494007432E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		65BBCBAE2101BA4200277809 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7157B4CA206FD7270004EF6C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -304,6 +308,15 @@
 				52412A931CA6114A0073C4BE /* YPImagePicker.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5251F8B6221CF816000A9C24 /* NoImageView */ = {
+			isa = PBXGroup;
+			children = (
+				5251F8B7221CFB8C000A9C24 /* NoImageView.xib */,
+				5251F8B9221CFBA3000A9C24 /* NoImageView.swift */,
+			);
+			path = NoImageView;
 			sourceTree = "<group>";
 		};
 		74098DA021C73546008F2E91 /* Stickers */ = {
@@ -535,6 +548,7 @@
 		EB65C4B3209281A10037858B /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				5251F8B6221CF816000A9C24 /* NoImageView */,
 				0D134EC121A39B1200ADAB47 /* Permission */,
 				99C6D69E1F1FB5C100711DB2 /* Gallery */,
 				99C6D6A61F1FB5C100711DB2 /* Photo */,
@@ -662,6 +676,7 @@
 				EB59F453208766B800811B7B /* YPVideoFiltersVC.xib in Resources */,
 				74098DA921C744B7008F2E91 /* YPStickerCollectionViewCell.xib in Resources */,
 				0D134EC521A39B5300ADAB47 /* LibraryPermissionView.xib in Resources */,
+				5251F8B8221CFB8C000A9C24 /* NoImageView.xib in Resources */,
 				99C6D6BA1F1FB5C100711DB2 /* Localizable.strings in Resources */,
 				520650EE21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.xib in Resources */,
 			);
@@ -752,6 +767,7 @@
 				99A052A31F20B4CA005600B3 /* YPAlbumsManager.swift in Sources */,
 				EB19A8F420AC41AE007F88D8 /* AVAssetTrack+Extensions.swift in Sources */,
 				EB473E25208E1DCA00D16105 /* AVCaptureSession+Extensions.swift in Sources */,
+				5251F8BA221CFBA3000A9C24 /* NoImageView.swift in Sources */,
 				EBB0FF7A20877A7500C84E25 /* YPVideoView.swift in Sources */,
 				EB473E19208E198E00D16105 /* AVFileType+Extensions.swift in Sources */,
 				0D134EC921A3A61600ADAB47 /* PhotoPermissionView.swift in Sources */,

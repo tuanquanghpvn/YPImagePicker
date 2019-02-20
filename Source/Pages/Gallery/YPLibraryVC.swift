@@ -24,6 +24,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     // TODO: QuangTT Custom
     let titleCustomBottomPager = YPConfig.wordings.libraryTitle
     fileprivate var permissionView = LibraryPermissionView()
+    fileprivate var noImageView = NoImageView()
 
     // MARK: - Init
     
@@ -257,12 +258,18 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
                 
         if mediaManager.fetchResult.count > 0 {
             changeAsset(mediaManager.fetchResult[0])
+            noImageView.removeFromSuperview()
             v.collectionView.reloadData()
             v.collectionView.selectItem(at: IndexPath(row: 0, section: 0),
                                              animated: false,
                                              scrollPosition: UICollectionView.ScrollPosition())
         } else {
-            delegate?.noPhotosForOptions()
+            noImageView = NoImageView.fromNib()
+            noImageView.frame = view.bounds
+            noImageView.reloadData = { [weak self] in
+                self?.refreshMediaRequest()
+            }
+            view.addSubview(noImageView)
         }
         scrollToTop()
     }
