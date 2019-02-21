@@ -277,10 +277,10 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         case .library:
             // TODO: QuangTT Custom - Hidden Choose Category Photo
 //            setTitleViewWithTitle(aTitle: libraryVC?.title ?? "")
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: YPConfig.wordings.next,
+            navigationItem.rightBarButtonItem = libraryVC?.countImage ?? 0 > 0 ? UIBarButtonItem(title: YPConfig.wordings.next,
                                                                 style: .done,
                                                                 target: self,
-                                                                action: #selector(done))
+                                                                action: #selector(done)) : nil
             navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
             navigationItem.rightBarButtonItem?.setTitleTextAttributes(
                 [NSAttributedString.Key.font : UIFont.notoSansCJKJP(style: .bold, size: 14)],

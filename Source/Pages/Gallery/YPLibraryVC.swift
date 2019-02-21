@@ -25,6 +25,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     let titleCustomBottomPager = YPConfig.wordings.libraryTitle
     fileprivate var permissionView = LibraryPermissionView()
     fileprivate var noImageView = NoImageView()
+    internal var countImage: Int = 0
 
     // MARK: - Init
     
@@ -259,6 +260,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
         if mediaManager.fetchResult.count > 0 {
             changeAsset(mediaManager.fetchResult[0])
             noImageView.removeFromSuperview()
+            countImage = mediaManager.fetchResult.count
             v.collectionView.reloadData()
             v.collectionView.selectItem(at: IndexPath(row: 0, section: 0),
                                              animated: false,
