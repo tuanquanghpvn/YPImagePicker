@@ -27,7 +27,6 @@ class YPStickerCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        stickerImageView?.image = nil
         loadingIndicator?.isHidden = true
     }
     

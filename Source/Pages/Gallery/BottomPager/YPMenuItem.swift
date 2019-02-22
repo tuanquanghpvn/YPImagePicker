@@ -11,7 +11,7 @@ import Stevia
 
 final class YPMenuItem: UIView {
     
-    var textLabel = UILabel()
+    var textLabel = PaddingLabel()
     var button = UIButton()
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,13 +43,37 @@ final class YPMenuItem: UIView {
         button.fillContainer()
         
         textLabel.style { l in
-            l.textAlignment = .center
             // TODO: QuangTT Custom
 //            l.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.bold)
-            l.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
+            l.font = UIFont.notoSansCJKJP(style: .bold, size: 15)
             l.textColor = self.unselectedColor()
             l.adjustsFontSizeToFitWidth = true
             l.numberOfLines = 2
+        }
+    }
+    
+    func setTextAlignment(centerAlignment: Bool, leftAlignment: Bool, rightAlignment: Bool) {
+        textLabel.style { l in
+            if centerAlignment {
+                l.textAlignment = .center
+            }
+            
+            if leftAlignment {
+                l.textAlignment = .left
+            }
+            
+            if rightAlignment {
+                l.textAlignment = .right
+            }
+        }
+    }
+    
+    func setPadding(padding: UIEdgeInsets) {
+        textLabel.style { l in
+            l.topInset = padding.top
+            l.leftInset = padding.left
+            l.rightInset = padding.right
+            l.bottomInset = padding.bottom
         }
     }
     

@@ -11,17 +11,22 @@ import UIKit
 class NoImageView: UIView {
     
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var reloadButton: UIButton!
+    
+    @IBAction func reloadButtonAction(_ sender: Any) {
+        reloadData?()
+    }
     
     var reloadData: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         descriptionLabel.font = UIFont.notoSansCJKJP(style: .medium, size: 15)
-        addGestureRecognizer(UITapGestureRecognizer(target: self,
-                                                    action: #selector(NoImageView.tapHeader(_:))))
-    }
-    
-    @objc func tapHeader(_ gestureRecognizer: UITapGestureRecognizer) {
-        reloadData?()
+        reloadButton.tintColor = UIColor.buttonColorGrey
+        reloadButton.setTitleColor(UIColor.buttonColorGrey, for: .normal)
+        reloadButton.titleLabel?.font = UIFont.notoSansCJKJP(style: .bold, size: 13)
+        reloadButton.layer.borderColor = UIColor.buttonColorGrey.cgColor
+        reloadButton.layer.borderWidth = 2
+        reloadButton.layer.cornerRadius = reloadButton.bounds.height / 2
     }
 }

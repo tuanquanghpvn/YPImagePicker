@@ -17,22 +17,43 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メディアがありませんカメラロールの写真や動画はこちらに表示されます。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSW-Ck-2kG">
-                    <rect key="frame" x="30" y="323" width="315" height="41"/>
+                    <rect key="frame" x="30" y="303" width="315" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LN7-o0-ZSK">
+                    <rect key="frame" x="128" y="359" width="119" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="119" id="CA2-Zr-jIe"/>
+                        <constraint firstAttribute="height" constant="40" id="MDV-nr-Iud"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="8" maxX="14" maxY="8"/>
+                    <state key="normal" title="再読込み" image="reload">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="reloadButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Byy-dZ-agl"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="OSW-Ck-2kG" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="5b5-K8-v3K"/>
+                <constraint firstItem="OSW-Ck-2kG" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" constant="-20" id="5b5-K8-v3K"/>
                 <constraint firstItem="OSW-Ck-2kG" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="wiD-nC-IWG"/>
+                <constraint firstItem="LN7-o0-ZSK" firstAttribute="top" secondItem="OSW-Ck-2kG" secondAttribute="bottom" constant="15" id="wk3-Qd-5JS"/>
+                <constraint firstItem="LN7-o0-ZSK" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="xkw-U2-gyP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="OSW-Ck-2kG" secondAttribute="trailing" constant="30" id="y6w-lm-qYg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="descriptionLabel" destination="OSW-Ck-2kG" id="XIE-oi-Qof"/>
+                <outlet property="reloadButton" destination="LN7-o0-ZSK" id="jGD-Kb-zDz"/>
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="reload" width="24" height="24"/>
+    </resources>
 </document>
