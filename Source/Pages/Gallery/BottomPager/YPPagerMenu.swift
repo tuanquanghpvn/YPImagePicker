@@ -32,7 +32,6 @@ final class YPPagerMenu: UIView {
             sv(
                 m
             )
-            
             m.fillVertically().width(menuItemWidth)
             if let pm = previousMenuItem {
                 pm-0-m
@@ -41,6 +40,13 @@ final class YPPagerMenu: UIView {
             }
             
             previousMenuItem = m
+        }
+        
+        if menuItems.count == 2 {
+            menuItems[0].setTextAlignment(centerAlignment: false, leftAlignment: false, rightAlignment: true)
+            menuItems[0].setPadding(padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20))
+            menuItems[1].setTextAlignment(centerAlignment: false, leftAlignment: true, rightAlignment: false)
+            menuItems[1].setPadding(padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
         }
     }
     
