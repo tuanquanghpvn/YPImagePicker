@@ -97,7 +97,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        CommonFunction.traceLogData(screenView: ypLocalized("PH01"), buttonName: nil)
         v.assetViewContainer.squareCropButton
             .addTarget(self,
                        action: #selector(squareCropButtonTapped),

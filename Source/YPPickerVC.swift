@@ -132,6 +132,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     }
     
     public override func viewDidAppear(_ animated: Bool) {
+        CommonFunction.traceLogData(screenView: ypLocalized("PH01"), buttonName: nil)
         super.viewDidAppear(animated)
         shouldHideStatusBar = true
         initialStatusBarHidden = true
@@ -308,6 +309,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         if let libraryVC = libraryVC {
             libraryVC.mediaManager.forseCancelExporting()
         }
+        CommonFunction.traceLogData(screenView: ypLocalized("PH01"), buttonName: ypLocalized("PH01.close"))
         self.didClose?()
     }
     
@@ -315,7 +317,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     @objc
     func done() {
         guard let libraryVC = libraryVC else { print("⚠️ YPPickerVC >>> YPLibraryVC deallocated"); return }
-        
+        CommonFunction.traceLogData(screenView: ypLocalized("PH01"), buttonName: ypLocalized("PH03.next"))
         if mode == .library {
             libraryVC.doAfterPermissionCheck { [weak self] in
                 libraryVC.selectedMedia(photoCallback: { photo in

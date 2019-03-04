@@ -105,6 +105,11 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
         setupRightBarButton()
     }
     
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        CommonFunction.traceLogData(screenView: ypLocalized("PH04"), buttonName: nil)
+    }
+    
     // MARK: Setup - ⚙️
     
     fileprivate func setupRightBarButton() {
@@ -149,11 +154,13 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
 
     @objc
     func cancel() {
+        CommonFunction.traceLogData(screenView: ypLocalized("PH04"), buttonName: ypLocalized("PH01.close"))
         didCancel?()
     }
     
     @objc
     func save() {
+        CommonFunction.traceLogData(screenView: ypLocalized("PH04"), buttonName: ypLocalized("PH03.next"))
         guard let didSave = didSave else { return print("Don't have saveCallback") }
         self.navigationItem.rightBarButtonItem = YPLoaders.defaultLoader
         let bundle = Bundle(for: YPImagePicker.self)
@@ -203,6 +210,10 @@ extension YPPhotoFiltersVC: UICollectionViewDataSource {
 extension YPPhotoFiltersVC: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedFilter = filters[indexPath.row]
+        if let name = selectedFilter?.name {
+            CommonFunction.traceLogData(screenView: ypLocalized("PH04"), buttonName: String(format: ypLocalized("PH04.filter.name"),
+                                                                                            name))
+        }
         currentlySelectedImageThumbnail = filteredThumbnailImagesArray[indexPath.row]
         self.v.imageView.image = currentlySelectedImageThumbnail
     }

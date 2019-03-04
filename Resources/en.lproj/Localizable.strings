@@ -20,3 +20,24 @@
 "YPImagePickerVideoTooLong" = "Pick a video less than %@ seconds long";
 "YPImagePickerVideoTooShort" = "The video must be at least %@ seconds";
 "YPImagePickerWarningItemsLimit" = "The limit is %d photos or videos";
+// MARK: - screen
+"PH01" = "アースフォト-library（タブ）";
+"PH02" = "アースフォト-photo（タブ）";
+"PH03" = "アースフォト-切り抜き場所選択";
+"PH04" = "アースフォト - フィルター選択";
+"PH05" = "アースフォト - スタンプ選択";
+"PH06" = "アースフォト - 確認/保存";
+
+// MARK: - button event
+"PH01.close" = "ボタン(閉じる)";
+"PH01.image" = "写真 image";
+"PH01.library" = "library";
+"PH01.photo" = "photo";
+"PH02.changeCamera" = "カメラ気切り替え";
+"PH02.flash" = "フラッシュ";
+"PH02.takePhoto" = "シャッター";
+"PH03.chosseImage" = "写真";
+"PH03.next" = "決定";
+"PH04.filter.name" = "フィルター(%@)";
+"PH05.stamp.name" = "スタンプ(%@)";
+"PH06.save" = "ライブラリに保存";
