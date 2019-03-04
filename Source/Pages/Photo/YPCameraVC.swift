@@ -45,6 +45,11 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
         v.previewViewContainer.addGestureRecognizer(tapRecognizer)
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        CommonFunction.traceLogData(screenView: ypLocalized("PH02"), buttonName: nil)
+    }
+    
     func start() {
         doAfterPermissionCheck { [weak self] in
             guard let strongSelf = self else {
@@ -87,6 +92,7 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc
     func flipButtonTapped() {
+        CommonFunction.traceLogData(screenView: ypLocalized("PH02"), buttonName: ypLocalized("PH02.changeCamera"))
         doAfterPermissionCheck { [weak self] in
             self?.photoCapture.flipCamera()
             DispatchQueue.main.async {
@@ -97,6 +103,7 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc
     func shotButtonTapped() {
+        CommonFunction.traceLogData(screenView: ypLocalized("PH02"), buttonName: ypLocalized("PH02.takePhoto"))
         doAfterPermissionCheck { [weak self] in
             self?.shoot()
         }
@@ -172,6 +179,7 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc
     func flashButtonTapped() {
+         CommonFunction.traceLogData(screenView: ypLocalized("PH02"), buttonName: ypLocalized("PH02.flash"))
         photoCapture.tryToggleFlash()
         refreshFlashButton()
     }

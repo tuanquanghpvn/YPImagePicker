@@ -36,6 +36,11 @@ class YPFinishVC: UIViewController {
                                                             target: self, action: #selector(close))
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        CommonFunction.traceLogData(screenView: ypLocalized("PH06"), buttonName: nil)
+    }
+    
     deinit {
         print("Picker YP Deinit")
     }
@@ -43,6 +48,7 @@ class YPFinishVC: UIViewController {
     // MARK: - Methods
     
     @objc func backAction() {
+        CommonFunction.traceLogData(screenView: ypLocalized("PH06"), buttonName: ypLocalized("PH01.close"))
         navigationController?.popViewController(animated: true)
     }
     
@@ -71,12 +77,14 @@ class YPFinishVC: UIViewController {
     @objc
     func close() {
         self.didCancel?()
+        CommonFunction.traceLogData(screenView: ypLocalized("PH06"), buttonName: ypLocalized("PH01.close"))
         dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Actions
     
     @IBAction func saveButtonClicked(_ sender: AnyObject) {
+        CommonFunction.traceLogData(screenView: ypLocalized("PH06"), buttonName: ypLocalized("PH06.save"))
         navigationItem.rightBarButtonItem = YPLoaders.defaultLoader
         saveButton?.isEnabled = false
         self.inputPhoto.modifiedImage = UIImage.imageWithView(self.containView)

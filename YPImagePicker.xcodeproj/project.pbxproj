@@ -28,6 +28,8 @@
 		5251F8BA221CFBA3000A9C24 /* NoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251F8B9221CFBA3000A9C24 /* NoImageView.swift */; };
 		5251F8C2221FF7FB000A9C24 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251F8C1221FF7FB000A9C24 /* PaddedLabel.swift */; };
 		5251F8C4221FFB47000A9C24 /* UiCollor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251F8C3221FFB47000A9C24 /* UiCollor+.swift */; };
+		5270F9B12228E2E300DD8971 /* NotificationCenter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270F9B02228E2E300DD8971 /* NotificationCenter+.swift */; };
+		5270F9B32228E99300DD8971 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270F9B22228E99300DD8971 /* CommonFunction.swift */; };
 		74098DA321C7358F008F2E91 /* YPStickersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74098DA121C7358F008F2E91 /* YPStickersVC.swift */; };
 		74098DA421C7358F008F2E91 /* YPStickersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74098DA221C7358F008F2E91 /* YPStickersVC.xib */; };
 		74098DA821C744B7008F2E91 /* YPStickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74098DA621C744B7008F2E91 /* YPStickerCollectionViewCell.swift */; };
@@ -147,6 +149,8 @@
 		5251F8B9221CFBA3000A9C24 /* NoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoImageView.swift; sourceTree = "<group>"; };
 		5251F8C1221FF7FB000A9C24 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		5251F8C3221FFB47000A9C24 /* UiCollor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiCollor+.swift"; sourceTree = "<group>"; };
+		5270F9B02228E2E300DD8971 /* NotificationCenter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+.swift"; sourceTree = "<group>"; };
+		5270F9B22228E99300DD8971 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
 		5F01F9DC20DCC494007432E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		65BBCBAE2101BA4200277809 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7157B4CA206FD7270004EF6C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -387,6 +391,8 @@
 				EB05F6E6214A7191002040AA /* YPVideoProcessor.swift */,
 				74E3DBF321F1642A008CD647 /* DownloadHelpers.swift */,
 				5251F8C3221FFB47000A9C24 /* UiCollor+.swift */,
+				5270F9B02228E2E300DD8971 /* NotificationCenter+.swift */,
+				5270F9B22228E99300DD8971 /* CommonFunction.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -717,6 +723,7 @@
 				990FD293201B3D69002A39A1 /* YPLibraryViewDelegate.swift in Sources */,
 				5251F8C2221FF7FB000A9C24 /* PaddedLabel.swift in Sources */,
 				990FD28F201A49D3002A39A1 /* YPPermissionCheckable.swift in Sources */,
+				5270F9B12228E2E300DD8971 /* NotificationCenter+.swift in Sources */,
 				EB473E23208E1DB000D16105 /* AVPlayer+Extensions.swift in Sources */,
 				99278DA820512BD90059532E /* PreiOS10PhotoCapture.swift in Sources */,
 				0D134EC721A39DA500ADAB47 /* UIView+Extensions.swift in Sources */,
@@ -747,6 +754,7 @@
 				EB5B07C4209146F00099C1FA /* UIButton+Extensions.swift in Sources */,
 				EB65C4B5209321420037858B /* String+Extensions.swift in Sources */,
 				99019E532018CE19007325C2 /* YPPickerScreen.swift in Sources */,
+				5270F9B32228E99300DD8971 /* CommonFunction.swift in Sources */,
 				99CF6D1F201B6B9E00487F77 /* CGRect+Extensions.swift in Sources */,
 				99CF6D1D201B6ABA00487F77 /* IndexSet+Extensions.swift in Sources */,
 				EB59F452208766B800811B7B /* YPVideoFiltersVC.swift in Sources */,
