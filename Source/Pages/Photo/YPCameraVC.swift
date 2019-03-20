@@ -237,8 +237,8 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func showAlertToSetting() {
-        let alert = UIAlertController(title: "ライブラリの利用を許可してください。",
-                                      message: "ライブラリの利用を許可するとあなたのカメラロールの写真を加工、加工した画像を保存することができます。",
+        let alert = UIAlertController(title: "カメラの利用を許可してください。",
+                                      message: "カメラへのアクセスを許可すると、カメラで撮影した画像を加工することができます。",
                                       preferredStyle: UIAlertController.Style.alert)
         
         let okAction = UIAlertAction(title: "許可しない", style: .cancel, handler: nil)
