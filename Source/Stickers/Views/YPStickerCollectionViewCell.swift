@@ -28,6 +28,7 @@ class YPStickerCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         loadingIndicator?.isHidden = true
+        stickerImageView.image = nil
     }
     
     // MARK: - Methods
@@ -40,7 +41,7 @@ class YPStickerCollectionViewCell: UICollectionViewCell {
         newImageView?.isHidden = !ypSticker.isNew
         choiceImageView?.isHidden = !isAlreadyChoice
         guard let stickerUrl = ypSticker.imageUrl else { return }
-        loadingIndicator?.isHidden = false
+//        loadingIndicator?.isHidden = false
         loadingIndicator?.startAnimating()
         DownloadHelpers.downloadImage(url: stickerUrl) { [weak self] (image) in
             self?.loadingIndicator?.isHidden = true

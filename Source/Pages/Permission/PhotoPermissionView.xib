@@ -27,25 +27,25 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FX2-hC-HGx">
                     <rect key="frame" x="0.0" y="233.5" width="375" height="200"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ライブラリの利用を許可してください。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOX-eX-rZj">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カメラの利用を許可してください。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOX-eX-rZj">
                             <rect key="frame" x="30" y="20" width="315" height="22.5"/>
                             <fontDescription key="fontDescription" name="NotoSansCJKjp-Bold" family="Noto Sans CJK JP" pointSize="15"/>
                             <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ライブラリの利用を許可するとあなたのカメラロールの写真を加工、加工した画像を保存することができます。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KI-7p-Bcd">
-                            <rect key="frame" x="30" y="62.5" width="315" height="58"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カメラへのアクセスを許可すると、カメラで撮影した画像を加工することができます。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KI-7p-Bcd">
+                            <rect key="frame" x="30" y="62.5" width="315" height="38.5"/>
                             <fontDescription key="fontDescription" name="NotoSansCJKjp-Regular" family="Noto Sans CJK JP" pointSize="13"/>
                             <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02i-ad-O5T">
-                            <rect key="frame" x="30" y="160.5" width="315" height="30"/>
+                            <rect key="frame" x="30" y="141" width="315" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="UlB-VS-743"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="NotoSansCJKjp-Regular" family="Noto Sans CJK JP" pointSize="15"/>
-                            <state key="normal" title="ライブラリアクセスを有効にする">
+                            <state key="normal" title="カメラアクセスを有効にする">
                                 <color key="titleColor" red="0.3411764706" green="0.76470588240000004" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
