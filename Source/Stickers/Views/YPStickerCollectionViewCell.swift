@@ -41,11 +41,12 @@ class YPStickerCollectionViewCell: UICollectionViewCell {
         newImageView?.isHidden = !ypSticker.isNew
         choiceImageView?.isHidden = !isAlreadyChoice
         guard let stickerUrl = ypSticker.imageUrl else { return }
-//        loadingIndicator?.isHidden = false
         loadingIndicator?.startAnimating()
         DownloadHelpers.downloadImage(url: stickerUrl) { [weak self] (image) in
-            self?.loadingIndicator?.isHidden = true
-            self?.stickerImageView?.image = image
+            DispatchQueue.main.async {
+                self?.loadingIndicator?.isHidden = true
+                self?.stickerImageView?.image = image
+            }
         }
     }
 }
