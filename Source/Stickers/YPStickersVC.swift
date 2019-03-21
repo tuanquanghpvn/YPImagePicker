@@ -34,11 +34,7 @@ class YPStickersVC: UIViewController {
     
     // MARK: - Private Properties
     
-    fileprivate var choiceStickers: [YPSticker] = [] {
-        didSet {
-            collectionView?.reloadData()
-        }
-    }
+    fileprivate var choiceStickers: [YPSticker] = []
     
     // Only For Collection View
     
@@ -211,6 +207,8 @@ extension YPStickersVC: UICollectionViewDataSource {
                     }
                 }
             }
+            
+            collectionView.reloadItems(at: [indexPath])
         }
     }
 }
