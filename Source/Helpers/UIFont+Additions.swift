@@ -33,11 +33,12 @@ extension UIFont {
     }
     
     static func notoSansCJKJP(style: NotoSansCJKJPStyle = .regular, size: CGFloat) -> UIFont {
-        guard
-            let font = UIFont(name: style.name, size: size) else {
-                return UIFont.systemFont(ofSize: size)
-        }
-        return font
+        return UIFont.systemFont(ofSize: size)
+//        guard
+//            let font = UIFont(name: style.name, size: size) else {
+//                return UIFont.systemFont(ofSize: size)
+//        }
+//        return font
     }
 }
 

@@ -19,10 +19,6 @@
 		520650EA21ED884B003DD83F /* YPStickerVC+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520650E921ED884B003DD83F /* YPStickerVC+UIImageView.swift */; };
 		520650ED21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520650EB21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.swift */; };
 		520650EE21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520650EC21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.xib */; };
-		520650F421EF0E46003DD83F /* NotoSansCJKjp-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 520650F321EF0DF0003DD83F /* NotoSansCJKjp-Bold.otf */; };
-		520650F521EF0E4A003DD83F /* NotoSansCJKjp-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 520650F021EF0DED003DD83F /* NotoSansCJKjp-Light.otf */; };
-		520650F621EF0E4F003DD83F /* NotoSansCJKjp-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 520650F121EF0DEE003DD83F /* NotoSansCJKjp-Medium.otf */; };
-		520650F721EF0E53003DD83F /* NotoSansCJKjp-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 520650F221EF0DEF003DD83F /* NotoSansCJKjp-Regular.otf */; };
 		520650F921EF10AC003DD83F /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520650F821EF10AC003DD83F /* UIFont+Additions.swift */; };
 		5251F8B8221CFB8C000A9C24 /* NoImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5251F8B7221CFB8C000A9C24 /* NoImageView.xib */; };
 		5251F8BA221CFBA3000A9C24 /* NoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251F8B9221CFBA3000A9C24 /* NoImageView.swift */; };
@@ -139,10 +135,6 @@
 		520650E921ED884B003DD83F /* YPStickerVC+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YPStickerVC+UIImageView.swift"; sourceTree = "<group>"; };
 		520650EB21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPStickerSeperatorCollectionViewCell.swift; sourceTree = "<group>"; };
 		520650EC21EEE7A6003DD83F /* YPStickerSeperatorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YPStickerSeperatorCollectionViewCell.xib; sourceTree = "<group>"; };
-		520650F021EF0DED003DD83F /* NotoSansCJKjp-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Light.otf"; sourceTree = "<group>"; };
-		520650F121EF0DEE003DD83F /* NotoSansCJKjp-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Medium.otf"; sourceTree = "<group>"; };
-		520650F221EF0DEF003DD83F /* NotoSansCJKjp-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Regular.otf"; sourceTree = "<group>"; };
-		520650F321EF0DF0003DD83F /* NotoSansCJKjp-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Bold.otf"; sourceTree = "<group>"; };
 		520650F821EF10AC003DD83F /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
 		52412A931CA6114A0073C4BE /* YPImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YPImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5251F8B7221CFB8C000A9C24 /* NoImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoImageView.xib; sourceTree = "<group>"; };
@@ -287,17 +279,6 @@
 			path = Finish;
 			sourceTree = "<group>";
 		};
-		520650EF21EF0D85003DD83F /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				520650F321EF0DF0003DD83F /* NotoSansCJKjp-Bold.otf */,
-				520650F021EF0DED003DD83F /* NotoSansCJKjp-Light.otf */,
-				520650F121EF0DEE003DD83F /* NotoSansCJKjp-Medium.otf */,
-				520650F221EF0DEF003DD83F /* NotoSansCJKjp-Regular.otf */,
-			);
-			path = Font;
-			sourceTree = "<group>";
-		};
 		52412A891CA6114A0073C4BE = {
 			isa = PBXGroup;
 			children = (
@@ -430,7 +411,6 @@
 		99C6D69D1F1FB5C100711DB2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				520650EF21EF0D85003DD83F /* Font */,
 				99C6D6B81F1FB5C100711DB2 /* YPImagePicker.swift */,
 				99C6D6B51F1FB5C100711DB2 /* YPPickerVC.swift */,
 				99019E4F2018CDDF007325C2 /* Configuration */,
@@ -676,10 +656,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				520650F721EF0E53003DD83F /* NotoSansCJKjp-Regular.otf in Resources */,
-				520650F621EF0E4F003DD83F /* NotoSansCJKjp-Medium.otf in Resources */,
-				520650F521EF0E4A003DD83F /* NotoSansCJKjp-Light.otf in Resources */,
-				520650F421EF0E46003DD83F /* NotoSansCJKjp-Bold.otf in Resources */,
 				99C6D6B91F1FB5C100711DB2 /* Assets.xcassets in Resources */,
 				99C6D6BD1F1FB5C100711DB2 /* YPLibraryView.xib in Resources */,
 				0D134ECB21A3A62100ADAB47 /* PhotoPermissionView.xib in Resources */,
