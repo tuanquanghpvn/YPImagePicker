@@ -32,6 +32,8 @@ class YPStickersVC: UIViewController {
     public var selectedFilter: YPFilter?
     public var currentlySelectedImageThumbnail: UIImage?
     
+    fileprivate var selectedIndexPath: [IndexPath] = []
+    
     // MARK: - Private Properties
     
     fileprivate var choiceStickers: [YPSticker] = []
@@ -207,8 +209,11 @@ extension YPStickersVC: UICollectionViewDataSource {
                     }
                 }
             }
-            
-            collectionView.reloadItems(at: [indexPath])
+            // Reload With Item Status
+            if selectedIndexPath.filter({ $0.row == indexPath.row }).count == 0 {
+                selectedIndexPath.append(indexPath)
+            }
+            collectionView.reloadItems(at: selectedIndexPath)
         }
     }
 }
