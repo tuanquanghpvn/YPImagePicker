@@ -56,7 +56,7 @@
                             <rect key="frame" x="0.0" y="375" width="375" height="272"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kzg-VC-2Bt">
-                                    <rect key="frame" x="30" y="182" width="315" height="60"/>
+                                    <rect key="frame" x="30" y="141" width="315" height="60"/>
                                     <color key="backgroundColor" red="0.3411764705882353" green="0.76470588235294112" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="60" id="H7B-EZ-Yd6"/>
@@ -70,13 +70,13 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="この画像を保存しますか？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K63-DN-eBb">
-                                    <rect key="frame" x="85.5" y="126.5" width="204" height="25.5"/>
+                                    <rect key="frame" x="85.5" y="96" width="204" height="20"/>
                                     <fontDescription key="fontDescription" name="NotoSansCJKjp-Regular" family="Noto Sans CJK JP" pointSize="17"/>
                                     <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アルバムに保存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpX-Cj-caa">
-                                    <rect key="frame" x="117.5" y="81.5" width="140" height="30"/>
+                                    <rect key="frame" x="117.5" y="68.5" width="140" height="23.5"/>
                                     <fontDescription key="fontDescription" name="NotoSansCJKjp-Bold" family="Noto Sans CJK JP" pointSize="20"/>
                                     <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -88,10 +88,10 @@
                                 <constraint firstItem="Kzg-VC-2Bt" firstAttribute="leading" secondItem="wsU-Nc-rRG" secondAttribute="leading" constant="30" id="Lq4-Hv-X1M"/>
                                 <constraint firstItem="K63-DN-eBb" firstAttribute="centerX" secondItem="wsU-Nc-rRG" secondAttribute="centerX" id="MzA-eL-aZF"/>
                                 <constraint firstItem="bpX-Cj-caa" firstAttribute="centerX" secondItem="wsU-Nc-rRG" secondAttribute="centerX" id="USR-bA-eBt"/>
-                                <constraint firstItem="K63-DN-eBb" firstAttribute="top" secondItem="bpX-Cj-caa" secondAttribute="bottom" constant="15" id="YdD-W0-gZB"/>
+                                <constraint firstItem="K63-DN-eBb" firstAttribute="centerY" secondItem="wsU-Nc-rRG" secondAttribute="centerY" constant="-30" id="YRT-TJ-l5B"/>
+                                <constraint firstItem="K63-DN-eBb" firstAttribute="top" secondItem="bpX-Cj-caa" secondAttribute="bottom" constant="4" id="YdD-W0-gZB"/>
                                 <constraint firstAttribute="trailing" secondItem="Kzg-VC-2Bt" secondAttribute="trailing" constant="30" id="jpG-ek-PVv"/>
-                                <constraint firstAttribute="bottom" secondItem="Kzg-VC-2Bt" secondAttribute="bottom" constant="30" id="ktK-mO-f5k"/>
-                                <constraint firstItem="Kzg-VC-2Bt" firstAttribute="top" secondItem="K63-DN-eBb" secondAttribute="bottom" constant="30" id="uad-Bz-dVA"/>
+                                <constraint firstItem="Kzg-VC-2Bt" firstAttribute="top" secondItem="K63-DN-eBb" secondAttribute="bottom" constant="25" id="uad-Bz-dVA"/>
                             </constraints>
                         </view>
                     </subviews>
