@@ -32,8 +32,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     public required init() {
         super.init(nibName: nil, bundle: nil)
         // TODO: QuangTT Custom
-//        title = YPConfig.wordings.libraryTitle
-        title = ""
+        title = YPConfig.wordings.libraryTitle
     }
     
     public required init?(coder aDecoder: NSCoder) {

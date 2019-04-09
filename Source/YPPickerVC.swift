@@ -168,8 +168,10 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         
         // Re-trigger permission check
         if let vc = vc as? YPLibraryVC {
+            vc.title = YPConfig.wordings.libraryTitle
             vc.checkPermission()
         } else if let cameraVC = vc as? YPCameraVC {
+            cameraVC.title = YPConfig.wordings.cameraTitle
             cameraVC.start()
         } else if let videoVC = vc as? YPVideoCaptureVC {
             videoVC.start()
@@ -204,13 +206,13 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             self?.libraryVC?.setAlbum(album)
             self?.libraryVC?.title = album.title
             self?.libraryVC?.refreshMediaRequest()
-            self?.setTitleViewWithTitle(aTitle: album.title)
+            self?.setTitleViewWithTitle(aTitle: album.title, showArrow: true)
             self?.dismiss(animated: true, completion: nil)
         }
         present(navVC, animated: true, completion: nil)
     }
     
-    func setTitleViewWithTitle(aTitle: String) {
+    func setTitleViewWithTitle(aTitle: String, showArrow: Bool) {
         let titleView = UIView()
         titleView.frame = CGRect(x: 0, y: 0, width: 200, height: 40)
         
@@ -236,27 +238,35 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             |-(>=8)-label.centerHorizontally()-(>=8)-|
             align(horizontally: label)
         } else {
-            let arrow = UIImageView()
-            arrow.image = YPConfig.icons.arrowDownIcon
-            
-            let attributes = UINavigationBar.appearance().titleTextAttributes
-            if let attributes = attributes, let foregroundColor = attributes[NSAttributedString.Key.foregroundColor] as? UIColor {
-                arrow.image = arrow.image?.withRenderingMode(.alwaysTemplate)
-                arrow.tintColor = foregroundColor
+            if showArrow {
+                let arrow = UIImageView()
+                arrow.image = YPConfig.icons.arrowDownIcon
+                
+                let attributes = UINavigationBar.appearance().titleTextAttributes
+                if let attributes = attributes, let foregroundColor = attributes[NSAttributedString.Key.foregroundColor] as? UIColor {
+                    arrow.image = arrow.image?.withRenderingMode(.alwaysTemplate)
+                    arrow.tintColor = foregroundColor
+                }
+                
+                let button = UIButton()
+                button.addTarget(self, action: #selector(navBarTapped), for: .touchUpInside)
+                button.setBackgroundColor(UIColor.white.withAlphaComponent(0.5), forState: .highlighted)
+                
+                titleView.sv(
+                    label,
+                    arrow,
+                    button
+                )
+                button.fillContainer()
+                |-(>=8)-label.centerHorizontally()-arrow-(>=8)-|
+                align(horizontally: label-arrow)
+            } else {
+                titleView.sv(
+                    label
+                )
+                |-(>=8)-label.centerHorizontally()-(>=8)-|
+                align(horizontally: label)
             }
-            
-            let button = UIButton()
-            button.addTarget(self, action: #selector(navBarTapped), for: .touchUpInside)
-            button.setBackgroundColor(UIColor.white.withAlphaComponent(0.5), forState: .highlighted)
-            
-            titleView.sv(
-                label,
-                arrow,
-                button
-            )
-            button.fillContainer()
-            |-(>=8)-label.centerHorizontally()-arrow-(>=8)-|
-            align(horizontally: label-arrow)
         }
         
         label.firstBaselineAnchor.constraint(equalTo: titleView.bottomAnchor, constant: -14).isActive = true
@@ -277,7 +287,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         switch mode {
         case .library:
             // TODO: QuangTT Custom - Hidden Choose Category Photo
-//            setTitleViewWithTitle(aTitle: libraryVC?.title ?? "")
+            setTitleViewWithTitle(aTitle: libraryVC?.title ?? "", showArrow: false)
             navigationItem.rightBarButtonItem = libraryVC?.countImage ?? 0 > 0 ? UIBarButtonItem(title: YPConfig.wordings.next,
                                                                 style: .done,
                                                                 target: self,
