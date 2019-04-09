@@ -24,8 +24,7 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
         self.v = YPCameraView(overlayView: YPConfig.overlayView)
         super.init(nibName: nil, bundle: nil)
         // TODO: QuangTT Custom
-//        title = YPConfig.wordings.cameraTitle
-        title = ""
+        title = YPConfig.wordings.cameraTitle
     }
     
     public required init?(coder aDecoder: NSCoder) {
