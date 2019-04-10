@@ -38,7 +38,7 @@ class YPFinishVC: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        CommonFunction.traceLogData(screenView: ypLocalized("PH06"), buttonName: nil)
+        CommonFunction.traceLogData(screenView: YPWordings().pH06, buttonName: nil)
     }
     
     deinit {
@@ -48,7 +48,7 @@ class YPFinishVC: UIViewController {
     // MARK: - Methods
     
     @objc func backAction() {
-        CommonFunction.traceLogData(screenView: ypLocalized("PH06"), buttonName: ypLocalized("PH01.close"))
+        CommonFunction.traceLogData(screenView: YPWordings().pH06, buttonName: YPWordings().pH01Close)
         navigationController?.popViewController(animated: true)
     }
     
@@ -77,14 +77,14 @@ class YPFinishVC: UIViewController {
     @objc
     func close() {
         self.didCancel?()
-        CommonFunction.traceLogData(screenView: ypLocalized("PH06"), buttonName: ypLocalized("PH01.close"))
+        CommonFunction.traceLogData(screenView: YPWordings().pH06, buttonName: YPWordings().pH01Close)
         dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Actions
     
     @IBAction func saveButtonClicked(_ sender: AnyObject) {
-        CommonFunction.traceLogData(screenView: ypLocalized("PH06"), buttonName: ypLocalized("PH06.save"))
+        CommonFunction.traceLogData(screenView: YPWordings().pH06, buttonName: YPWordings().pH06Save)
         navigationItem.rightBarButtonItem = YPLoaders.defaultLoader
         saveButton?.isEnabled = false
         self.inputPhoto.modifiedImage = UIImage.imageWithView(self.containView)

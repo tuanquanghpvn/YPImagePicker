@@ -46,7 +46,7 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        CommonFunction.traceLogData(screenView: ypLocalized("PH02"), buttonName: nil)
+        CommonFunction.traceLogData(screenView: YPWordings().pH02, buttonName: nil)
     }
     
     func start() {
@@ -91,7 +91,7 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc
     func flipButtonTapped() {
-        CommonFunction.traceLogData(screenView: ypLocalized("PH02"), buttonName: ypLocalized("PH02.changeCamera"))
+        CommonFunction.traceLogData(screenView: YPWordings().pH02, buttonName: YPWordings().pH02ChangeCamera)
         doAfterPermissionCheck { [weak self] in
             self?.photoCapture.flipCamera()
             DispatchQueue.main.async {
@@ -102,7 +102,7 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc
     func shotButtonTapped() {
-        CommonFunction.traceLogData(screenView: ypLocalized("PH02"), buttonName: ypLocalized("PH02.takePhoto"))
+        CommonFunction.traceLogData(screenView: YPWordings().pH02, buttonName: YPWordings().pH02TakepHoto)
         doAfterPermissionCheck { [weak self] in
             self?.shoot()
         }
@@ -178,7 +178,7 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc
     func flashButtonTapped() {
-         CommonFunction.traceLogData(screenView: ypLocalized("PH02"), buttonName: ypLocalized("PH02.flash"))
+         CommonFunction.traceLogData(screenView: YPWordings().pH02, buttonName: YPWordings().pH02Flash)
         photoCapture.tryToggleFlash()
         refreshFlashButton()
     }

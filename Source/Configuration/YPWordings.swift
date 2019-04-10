@@ -41,4 +41,26 @@ public struct YPWordings {
     public var filter = ypLocalized("YPImagePickerFilter")
     public var crop = ypLocalized("YPImagePickerCrop")
     public var warningMaxItemsLimit = ypLocalized("YPImagePickerWarningItemsLimit")
+    
+    // MARK: - screen
+    public var pH01 = "アースフォト-library（タブ）"
+    public var pH02 = "アースフォト-photo（タブ）"
+    public var pH03 = "アースフォト-切り抜き場所選択"
+    public var pH04 = "アースフォト - フィルター選択"
+    public var pH05 = "アースフォト - スタンプ選択"
+    public var pH06 = "アースフォト - 確認/保存"
+    
+    // MARK: - button event
+    public var pH01Close = "ボタン(閉じる)"
+    public var pH01Image = "写真 image"
+    public var pH01Library = "library"
+    public var pH01Photo = "photo"
+    public var pH02ChangeCamera = "カメラ気切り替え"
+    public var pH02Flash = "フラッシュ"
+    public var pH02TakepHoto = "シャッター"
+    public var pH03ChooseImage = "写真"
+    public var pH03Next = "決定"
+    public var pH04FilterName = "フィルター"
+    public var pH05StampName = "スタンプ"
+    public var pH06Save = "ライブラリに保存"
 }
