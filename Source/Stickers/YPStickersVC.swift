@@ -62,7 +62,7 @@ class YPStickersVC: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        CommonFunction.traceLogData(screenView: ypLocalized("PH05"), buttonName: nil)
+        CommonFunction.traceLogData(screenView: YPWordings().pH05, buttonName: nil)
     }
     
     deinit {
@@ -122,7 +122,7 @@ class YPStickersVC: UIViewController {
     }
     
     @objc func nextAction() {
-        CommonFunction.traceLogData(screenView: ypLocalized("PH05"), buttonName: ypLocalized("PH03.next"))
+        CommonFunction.traceLogData(screenView: YPWordings().pH05, buttonName: YPWordings().pH03Next)
         guard let didSave = didSave else { return print("Don't have saveCallback") }
         let bundle = Bundle(for: YPImagePicker.self)
         let ypFinishVC = YPFinishVC(nibName: "YPFinishVC", bundle: bundle)
@@ -172,8 +172,7 @@ extension YPStickersVC: UICollectionViewDataSource {
         guard !selectedObject.isSeperator else { return }
         if !dataSource[indexPath.row].isSeperator {
             if let id = dataSource[indexPath.row].infoImage?.id {
-                CommonFunction.traceLogData(screenView: ypLocalized("PH05"), buttonName: String(format: ypLocalized("PH05.stamp.name"),
-                                                                                                "\(id)"))
+                CommonFunction.traceLogData(screenView: YPWordings().pH05, buttonName: YPWordings().pH05StampName + "(" + "\(id)" + ")")
             }
             if let selectedSticker = dataSource[indexPath.row].infoImage {
                 if let alreadyChoiceIndex = choiceStickers.firstIndex(where: { $0.id == selectedSticker.id }) {

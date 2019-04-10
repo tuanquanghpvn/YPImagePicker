@@ -92,7 +92,7 @@ public class YPBottomPager: UIViewController, UIScrollViewDelegate {
     
     @objc
     func tabTapped(_ b: UIButton) {
-        CommonFunction.traceLogData(screenView: b.tag == 1 ? ypLocalized("PH02") : ypLocalized("PH01"), buttonName: b.tag == 1 ? ypLocalized("PH01.photo") : ypLocalized("PH01.library"))
+        CommonFunction.traceLogData(screenView: b.tag == 1 ? YPWordings().pH02 : YPWordings().pH01, buttonName: b.tag == 1 ? YPWordings().pH01Photo : YPWordings().pH01Library)
         showPage(b.tag)
     }
     
