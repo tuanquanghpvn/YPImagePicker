@@ -52,10 +52,10 @@ public struct YPWordings {
     
     // MARK: - button event
     public var pH01Close = "ボタン(閉じる)"
-    public var pH01Image = "写真 image"
+    public var pH01Image = "写真"
     public var pH01Library = "library"
     public var pH01Photo = "photo"
-    public var pH02ChangeCamera = "カメラ気切り替え"
+    public var pH02ChangeCamera = "カメラ切り替え"
     public var pH02Flash = "フラッシュ"
     public var pH02TakepHoto = "シャッター"
     public var pH03ChooseImage = "写真"
