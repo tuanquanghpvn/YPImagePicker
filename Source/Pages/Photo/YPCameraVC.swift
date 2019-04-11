@@ -178,7 +178,7 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc
     func flashButtonTapped() {
-         CommonFunction.traceLogData(screenView: YPWordings().pH02, buttonName: YPWordings().pH02Flash)
+        CommonFunction.traceLogData(screenView: YPWordings().pH02, buttonName: YPWordings().pH02Flash)
         photoCapture.tryToggleFlash()
         refreshFlashButton()
     }

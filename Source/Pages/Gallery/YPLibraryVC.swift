@@ -300,6 +300,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     }
     
     func changeAsset(_ asset: PHAsset) {
+        CommonFunction.traceLogData(screenView: YPWordings().pH01, buttonName: YPWordings().pH01Image)
         mediaManager.selectedAsset = asset
         latestImageTapped = asset.localIdentifier
         delegate?.libraryViewStartedLoading()
