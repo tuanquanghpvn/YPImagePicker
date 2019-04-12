@@ -48,7 +48,7 @@ class YPFinishVC: UIViewController {
     // MARK: - Methods
     
     @objc func backAction() {
-        CommonFunction.traceLogData(screenView: YPWordings().pH06, buttonName: YPWordings().pH01Close)
+        CommonFunction.traceLogData(screenView: YPWordings().pH06, buttonName: YPWordings().backButton)
         navigationController?.popViewController(animated: true)
     }
     

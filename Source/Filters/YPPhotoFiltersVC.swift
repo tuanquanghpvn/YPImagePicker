@@ -154,7 +154,7 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
 
     @objc
     func cancel() {
-        CommonFunction.traceLogData(screenView: YPWordings().pH04, buttonName: YPWordings().pH01Close)
+        CommonFunction.traceLogData(screenView: YPWordings().pH04, buttonName: YPWordings().backButton)
         didCancel?()
     }
     
