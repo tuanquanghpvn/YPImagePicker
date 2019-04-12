@@ -51,6 +51,7 @@ public struct YPWordings {
     public var pH06 = "アースフォト - 確認/保存"
     
     // MARK: - button event
+    public var backButton = "ボタン(戻る)"
     public var pH01Close = "ボタン(閉じる)"
     public var pH01Image = "写真"
     public var pH01Library = "library"

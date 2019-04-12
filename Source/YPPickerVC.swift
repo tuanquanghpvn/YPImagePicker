@@ -319,7 +319,11 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         if let libraryVC = libraryVC {
             libraryVC.mediaManager.forseCancelExporting()
         }
-        CommonFunction.traceLogData(screenView: YPWordings().pH01, buttonName: YPWordings().pH01Close)
+        if mode == .library {
+            CommonFunction.traceLogData(screenView: YPWordings().pH01, buttonName: YPWordings().pH01Close)
+        } else if mode == .camera {
+            CommonFunction.traceLogData(screenView: YPWordings().pH02, buttonName: YPWordings().pH01Close)
+        }
         self.didClose?()
     }
     
