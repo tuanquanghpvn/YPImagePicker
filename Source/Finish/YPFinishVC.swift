@@ -36,6 +36,14 @@ class YPFinishVC: UIViewController {
                                                             target: self, action: #selector(close))
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParent {
+            CommonFunction.traceLogData(screenView: YPWordings().pH06, buttonName: YPWordings().backButton)
+        }
+    }
+    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         CommonFunction.traceLogData(screenView: YPWordings().pH06, buttonName: nil)
