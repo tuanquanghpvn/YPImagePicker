@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class YPFinishVC: UIViewController {
     
@@ -93,9 +94,47 @@ class YPFinishVC: UIViewController {
     
     @IBAction func saveButtonClicked(_ sender: AnyObject) {
         CommonFunction.traceLogData(screenView: YPWordings().pH06, buttonName: YPWordings().pH06Save)
-        navigationItem.rightBarButtonItem = YPLoaders.defaultLoader
-        saveButton?.isEnabled = false
         self.inputPhoto.modifiedImage = UIImage.imageWithView(self.containView)
-        self.didSave?(YPMediaItem.photo(p: self.inputPhoto))
+        checkPermission()
+    }
+    
+    func checkPermission() {
+        checkPermissionToAccessPhotoLibrary { [weak self] hasPermission in
+            guard let strongSelf = self else {
+                return
+            }
+            if hasPermission {
+               strongSelf.didSave?(YPMediaItem.photo(p: strongSelf.inputPhoto))
+            } else {
+               strongSelf.showAlert()
+            }
+        }
+    }
+    
+    // Async beacause will prompt permission if .notDetermined
+    // and ask custom popup if denied.
+    func checkPermissionToAccessPhotoLibrary(block: @escaping (Bool) -> Void) {
+        let status = PHPhotoLibrary.authorizationStatus()
+        switch status {
+        case .authorized:
+            block(true)
+        case .restricted, .denied:
+            block(false)
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization { s in
+                DispatchQueue.main.async {
+                    block(s == .authorized)
+                }
+            }
+        }
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "ライブラリの利用を許可してください。",
+                                      message: "",
+                                      preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        navigationController?.present(alert, animated: true, completion: nil)
     }
 }
