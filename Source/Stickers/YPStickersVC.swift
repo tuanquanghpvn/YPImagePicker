@@ -53,6 +53,9 @@ class YPStickersVC: UIViewController {
     }
     fileprivate var options = Options()
     
+    // check if choiceStickers is processing append
+    fileprivate var isAppendProcessing = false
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -170,39 +173,52 @@ extension YPStickersVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedObject = dataSource[indexPath.row]
         guard !selectedObject.isSeperator else { return }
+        
+        if isAppendProcessing {
+            return
+        }
+        isAppendProcessing = true
         if !dataSource[indexPath.row].isSeperator {
             if let id = dataSource[indexPath.row].infoImage?.id {
                 CommonFunction.traceLogData(screenView: YPWordings().pH05, buttonName: YPWordings().pH05StampName + "(" + "\(id)" + ")")
             }
             if let selectedSticker = dataSource[indexPath.row].infoImage {
                 if let alreadyChoiceIndex = choiceStickers.firstIndex(where: { $0.id == selectedSticker.id }) {
+                    print("[Stripe] selected remove sicker \(selectedSticker.id)")
                     choiceStickers.remove(at: alreadyChoiceIndex)
                     deleteImageInView(id: selectedSticker.id)
+                    isAppendProcessing = false
                 } else {
                     guard let stickerUrl = selectedSticker.imageUrl else { return }
                     if choiceStickers.count == 0 {
+                        print("[Stripe] selected sicker \(selectedSticker.id)")
                         choiceStickers.append(selectedSticker)
                         DownloadHelpers.downloadImage(url: stickerUrl) { [weak self, selectedSticker] (image) in
                             let imageView = UIImageView(image: image)
                             imageView.tag = selectedSticker.id
                             self?.didSelectImage(imageView: imageView)
+                            self?.isAppendProcessing = false
                         }
                     } else {
                         if let alreadyTypeIndex = choiceStickers.firstIndex(where: { $0.photoStampType == selectedSticker.photoStampType }) {
-                            DownloadHelpers.downloadImage(url: stickerUrl) { [weak self, selectedSticker] (image) in
-                                let imageView = UIImageView(image: image)
-                                imageView.tag = selectedSticker.id
-                                self?.didSelectImage(imageView: imageView)
-                            }
                             deleteImageInView(id: choiceStickers[alreadyTypeIndex].id)
                             choiceStickers.remove(at: alreadyTypeIndex)
-                            choiceStickers.append(selectedSticker)
-                        } else {
+                            print("[Stripe] selected sicker \(selectedSticker.id)")
                             choiceStickers.append(selectedSticker)
                             DownloadHelpers.downloadImage(url: stickerUrl) { [weak self, selectedSticker] (image) in
                                 let imageView = UIImageView(image: image)
                                 imageView.tag = selectedSticker.id
                                 self?.didSelectImage(imageView: imageView)
+                                self?.isAppendProcessing = false
+                            }
+                        } else {
+                            choiceStickers.append(selectedSticker)
+                            print("[Stripe] selected sicker \(selectedSticker.id)")
+                            DownloadHelpers.downloadImage(url: stickerUrl) { [weak self, selectedSticker] (image) in
+                                let imageView = UIImageView(image: image)
+                                imageView.tag = selectedSticker.id
+                                self?.didSelectImage(imageView: imageView)
+                                self?.isAppendProcessing = false
                             }
                         }
                     }
